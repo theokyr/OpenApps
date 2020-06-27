@@ -2,11 +2,11 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MatCardModule} from "@angular/material/card";
 import {CategoriesApiService} from "./categories-api.service";
-import {CategoriesListComponent} from './categories-list/categories-list.component';
+import {CategoriesListComponent} from '../../components/categories/categories-list/categories-list.component';
 
 
 @NgModule({
-  declarations: [CategoriesListComponent],
+  declarations: [],
   imports: [
     CommonModule,
     MatCardModule
@@ -15,5 +15,5 @@ import {CategoriesListComponent} from './categories-list/categories-list.compone
     CategoriesApiService
   ]
 })
-export class CategoriesModule {
+export class CategoriesLibModule {
 }

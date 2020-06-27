@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BaseApiService} from "../../angular-shared/api/base-api.service";
+import {BaseApiService} from "../api/base-api.service";
 import {HttpClient} from "@angular/common/http";
 import {CategoryEndpoints} from "../../lib/categories/category.endpoints";
 

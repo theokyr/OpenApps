@@ -18,6 +18,5 @@ export class BaseApiService {
   protected get(endpoint: string, data: Object) {
     return this.http
       .get(this.getUrl(endpoint), data)
-      .subscribe(data => data)
   }
 }

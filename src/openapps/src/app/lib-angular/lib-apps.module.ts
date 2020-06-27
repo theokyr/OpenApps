@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
 import {BaseApiService} from "./api/base-api.service";
-
 
 
 @NgModule({
@@ -15,4 +14,5 @@ import {BaseApiService} from "./api/base-api.service";
     BaseApiService
   ]
 })
-export class SharedModule { }
+export class LibAppsModule {
+}
