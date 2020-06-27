@@ -20,7 +20,7 @@ $openapps-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$openapps-theme: mat-light-theme((
+$openapps-theme: mat-dark-theme((
   color: (
     primary: $openapps-primary,
     accent: $openapps-accent,
