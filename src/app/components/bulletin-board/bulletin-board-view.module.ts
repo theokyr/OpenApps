@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {BulletinBoardComponent} from "./bulletin-board.component";
 import {CategoriesViewModule} from "../categories/categories-view.module";
 import {AnnouncementsViewModule} from "../announcements/announcements-view.module";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 
@@ -11,7 +12,8 @@ import {AnnouncementsViewModule} from "../announcements/announcements-view.modul
   imports: [
     CommonModule,
     CategoriesViewModule,
-    AnnouncementsViewModule
+    AnnouncementsViewModule,
+    FlexLayoutModule
   ]
 })
 export class BulletinBoardViewModule { }
