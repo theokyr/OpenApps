@@ -12,7 +12,7 @@ export class AnnouncementModel extends ApiResponseModel {
 
   constructor(obj: any) {
     super(obj._id);
-    this._categoryId = obj.about;
+    this._categoryId = obj._about;
     this._title = new TranslatedText(obj.title, obj.titleEn);
     this._text = new TranslatedText(obj.text, obj.textEn);
     this._publisher = new Publisher(obj.publisher.id, obj.publisher.name);

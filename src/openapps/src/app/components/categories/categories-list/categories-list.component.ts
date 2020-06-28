@@ -16,10 +16,10 @@ export class CategoriesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPublicCategories();
+    this.getCategoriesList();
   }
 
-  getPublicCategories() {
+  getCategoriesList() {
     this.service.getCategoriesPublic()
       .subscribe(data => {
         if (Array.isArray(data)){

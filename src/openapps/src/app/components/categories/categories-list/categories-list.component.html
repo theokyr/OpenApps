@@ -1,7 +1,5 @@
-<p>categories-list works!</p>
-
-<ul>
-  <li *ngFor="let category of categories; let i = index">
-    {{i}} {{category.name}}
-  </li>
-</ul>
+<mat-card fxLayout="row" fxLayoutAlign="start center" fxLayoutGap=".5rem">
+  <ng-container *ngFor="let category of categories; let i = index">
+    <a [routerLink]="'/category/'+category.id" mat-flat-button color="primary">{{category.name}}</a>
+  </ng-container>
+</mat-card>

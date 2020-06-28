@@ -1,4 +1,3 @@
-// TODO: Ideally this will be replaced with a proper translation library in the future.
 export class TranslatedText {
   private readonly _text;
   private readonly _textEn;
@@ -8,11 +7,8 @@ export class TranslatedText {
     this._textEn = textEn;
   }
 
-  get text() {
+  // TODO: Ideally this will be replaced with a proper translation library/solution in the future.
+  get value() {
     return this._text;
-  }
-
-  get textEn() {
-    return this._textEn;
   }
 }

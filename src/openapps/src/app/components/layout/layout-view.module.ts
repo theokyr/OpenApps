@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
+import { BulletinBoardComponent } from './bulletin-board/bulletin-board.component';
 import {CategoriesViewModule} from "../categories/categories-view.module";
+import {AnnouncementsViewModule} from "../announcements/announcements-view.module";
 
 
 
 @NgModule({
-  declarations: [HomeComponent],
-  imports: [
-    CommonModule,
-    CategoriesViewModule
-  ]
+  declarations: [BulletinBoardComponent],
+    imports: [
+        CommonModule,
+        CategoriesViewModule,
+        AnnouncementsViewModule
+    ]
 })
 export class LayoutViewModule { }

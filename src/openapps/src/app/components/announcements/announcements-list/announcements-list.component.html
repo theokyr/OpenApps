@@ -1,0 +1,21 @@
+<mat-list fxLayout="column" fxLayoutGap=".5rem">
+  <ng-container *ngFor="let announcement of announcements; let i = index">
+    <mat-card mat-ripple fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="1rem">
+      <div>
+        {{announcement.categoryId}}
+      </div>
+      <div>
+        {{announcement.publisher.name}}
+      </div>
+      <div>
+        {{announcement.title.value}}
+      </div>
+      <div>
+        {{announcement.text.value | truncate : 35: false}}
+      </div>
+      <div>
+        {{announcement.date}}
+      </div>
+    </mat-card>
+  </ng-container>
+</mat-list>
