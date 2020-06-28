@@ -6,7 +6,7 @@ export class AnnouncementModel extends ApiResponseModel {
   private readonly _publisher: Publisher;
   private readonly _text: TranslatedText;
   private readonly _title: TranslatedText;
-  private readonly _date: string;
+  private readonly _date: Date;
   private readonly _attachments: string;
   private readonly _categoryId: string;
 
@@ -16,7 +16,7 @@ export class AnnouncementModel extends ApiResponseModel {
     this._title = new TranslatedText(obj.title, obj.titleEn);
     this._text = new TranslatedText(obj.text, obj.textEn);
     this._publisher = new Publisher(obj.publisher.id, obj.publisher.name);
-    this._date = obj.date;
+    this._date = new Date(obj.date);
     this._attachments = obj.attachments;
   }
 
@@ -32,7 +32,7 @@ export class AnnouncementModel extends ApiResponseModel {
     return this._title;
   }
 
-  get date(): string {
+  get date(): Date {
     return this._date;
   }
 

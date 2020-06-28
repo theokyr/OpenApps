@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  base_url: "http://localhost:3000"
-  // base_url: "https://api.it.teithe.gr/"
+  // base_url: "http://localhost:3000"
+  base_url: "https://api.it.teithe.gr/"
 };
 
 /*

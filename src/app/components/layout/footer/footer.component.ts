@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {faGithub} from "@fortawesome/free-brands-svg-icons/faGithub";
+import {AppModule} from "../../../app.module";
 
 @Component({
   selector: 'app-footer',
@@ -8,8 +9,12 @@ import {faGithub} from "@fortawesome/free-brands-svg-icons/faGithub";
 })
 export class FooterComponent implements OnInit {
   faGithub = faGithub;
+  title: string;
+  version: string;
 
   constructor() {
+    this.title = AppModule.APP_TITLE;
+    this.version = AppModule.APP_VERSION;
   }
 
   ngOnInit(): void {

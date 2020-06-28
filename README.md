@@ -1,8 +1,17 @@
 # OpenApps
 Angular v10.0 client for [IT_API](https://github.com/apavlidi/IT_API/).
-Current features:
- * Categories (Public)
- * Announcements (Public)
+* Current features:
+    * Read Categories (Public)
+    * Read Announcements (Public)
+* Planned features:
+    * Category Filtering
+    * Announcement Pagination
+    * Authentication:
+        * Login flow
+        * Read Categories (Private)
+        * Read Announcements (Private)
+    * Localization
+    * Theme support (coloring and light/dark theme)
 
 ## Requirements
 * [Node.js](https://nodejs.org/en/download/) (built with LTS v12.18.1)

@@ -1,5 +1,12 @@
-<div class="full-width footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="1rem">
-  <span>OpenApps - 2020</span> -
-  <a mat-button target="_blank" href="https://github.com/theokyr/OpenApps">
-    <fa-icon [icon]="faGithub"></fa-icon>&nbsp;GitHub</a>
+<div  class="full-width footer" fxLayout="row" fxLayoutAlign="space-between center">
+  <div>
+    <small>This is NOT an official Application of the IEE Department of IHU.
+      Do NOT contact the IEE department for any issues with {{title}}. Use GitHub instead. </small>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="1rem">
+    <span>{{title}} {{version}}</span>
+    <a mat-button target="_blank" href="https://github.com/theokyr/OpenApps">
+      <fa-icon [icon]="faGithub"></fa-icon>&nbsp;GitHub</a>
+  </div>
+
 </div>

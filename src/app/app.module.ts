@@ -31,6 +31,8 @@ import {environment} from "../environments/environment";
 })
 export class AppModule {
 
+  public static APP_TITLE = "OpenApps";
+  public static APP_VERSION = "0.0.2";
 
   constructor() {
     BaseItApiService.setBaseUrl(environment.base_url);

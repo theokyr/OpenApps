@@ -15,4 +15,8 @@ export class AnnouncementsApiService extends BaseItApiService {
   public getAnnouncementsPublic() {
     return super.get(AnnouncementEndpoints.ENDPOINT_GET_ANNOUNCEMENTS_PUBLIC, [])
   }
+
+  public getAnnouncementsPublicPaginated() {
+    return super.get(AnnouncementEndpoints.ENDPOINT_GET_ANNOUNCEMENTS_PUBLIC_PAGINATED, [])
+  }
 }

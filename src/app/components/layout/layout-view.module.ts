@@ -12,10 +12,11 @@ import {MatRippleModule} from "@angular/material/core";
 import {AppRoutingModule} from "../../shared-angular/routing/app-routing.module";
 import {MatButtonModule} from "@angular/material/button";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { FeatureComponent } from './feature/feature.component';
 
 
 @NgModule({
-  declarations: [BulletinBoardComponent, HomeComponent, HeaderComponent, FooterComponent],
+  declarations: [BulletinBoardComponent, HomeComponent, HeaderComponent, FooterComponent, FeatureComponent],
   exports: [
     HeaderComponent,
     FooterComponent
