@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {CategoriesApiService} from "../../../lib-angular/categories/categories-api.service";
+import {Component, Input, OnInit} from '@angular/core';
 import {CategoryModel} from "../../../lib-ts/categories/category.model";
 
 @Component({
@@ -9,21 +8,13 @@ import {CategoryModel} from "../../../lib-ts/categories/category.model";
 })
 export class CategoriesListComponent implements OnInit {
 
-  public categories: CategoryModel[];
+  @Input()
+  categories: CategoryModel[];
 
-  constructor(public service: CategoriesApiService) {
-    this.categories = [];
+  constructor() {
   }
 
-  ngOnInit(): void {
-    this.getCategoriesList();
-  }
-
-  getCategoriesList() {
-    this.service.getCategoriesPublic()
-      .subscribe(result => {
-        this.categories = result;
-      })
+  ngOnInit() {
   }
 
 }

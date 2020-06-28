@@ -13,41 +13,9 @@ import {forkJoin} from "rxjs";
 export class AnnouncementsListComponent implements OnInit {
 
   @Input()
-  paginated: boolean;
+  announcements: AnnouncementModel[];
 
-  public announcements: AnnouncementModel[];
-  public categories: CategoryModel[] = [];
-
-  constructor(public service: AnnouncementsApiService, public categoriesService: CategoriesApiService) {
-    this.announcements = [];
-  }
-
-  ngOnInit(): void {
-    this.getAnnouncementsList();
-  }
-
-  getAnnouncementsList() {
-    let categoriesObservable = this.categoriesService.getCategoriesPublic();
-
-    let announcementsObservable = this.paginated ?
-      this.service.getAnnouncementsPublicPaginated() : this.service.getAnnouncementsPublic();
-
-    let observables = [categoriesObservable, announcementsObservable]
-    forkJoin(observables)
-      .subscribe(res => {
-        this.categories = <CategoryModel[]>res[0];
-        this.announcements = <AnnouncementModel[]>res[1];
-
-        if (this.categories.length > 0) {
-          this.announcements.forEach(announcement => {
-            this.categories.filter(category => category.id == announcement.categoryId)
-              .forEach(category => {
-                announcement.category = category;
-              })
-          })
-        } else {
-        }
-      })
+  ngOnInit() {
   }
 
 }

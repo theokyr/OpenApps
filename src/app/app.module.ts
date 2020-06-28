@@ -11,6 +11,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {BaseItApiService} from "./lib-angular/api/base-it-api.service";
 import {environment} from "../environments/environment";
+import {BulletinBoardViewModule} from "./components/bulletin-board/bulletin-board-view.module";
 
 @NgModule({
   declarations: [
@@ -20,11 +21,12 @@ import {environment} from "../environments/environment";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FontAwesomeModule,
     FlexLayoutModule,
     LibItApiModule,
-    CategoriesViewModule,
+    BulletinBoardViewModule,
     LayoutViewModule,
-    FontAwesomeModule
+    CategoriesViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

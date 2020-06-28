@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {BulletinBoardComponent} from "../../components/layout/bulletin-board/bulletin-board.component";
+import {BulletinBoardComponent} from "../../components/bulletin-board/bulletin-board.component";
 import {HomeComponent} from "../../components/layout/home/home.component";
 
 
