@@ -1,10 +1,12 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {BulletinBoardComponent} from "./components/layout/bulletin-board/bulletin-board.component";
+import {HomeComponent} from "./components/layout/home/home.component";
 
 
 const routes: Routes = [
-  { path: '', component: BulletinBoardComponent }
+  { path: '', component: HomeComponent },
+  { path: 'announcements', component: BulletinBoardComponent }
 ];
 
 @NgModule({
