@@ -12,6 +12,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {BaseItApiService} from "./lib-angular/api/base-it-api.service";
 import {environment} from "../environments/environment";
 import {BulletinBoardViewModule} from "./components/bulletin-board/bulletin-board-view.module";
+import {AuthenticationViewModuleModule} from "./components/auth/authentication-view-module.module";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {BulletinBoardViewModule} from "./components/bulletin-board/bulletin-boar
     FontAwesomeModule,
     FlexLayoutModule,
     LibItApiModule,
+    AuthenticationViewModuleModule,
     BulletinBoardViewModule,
     LayoutViewModule,
     CategoriesViewModule
