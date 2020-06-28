@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {faGithub} from "@fortawesome/free-brands-svg-icons/faGithub";
-import {AppModule} from "../../../app.module";
+import {Constants} from "../../../shared/constants";
 
 @Component({
   selector: 'app-footer',
@@ -13,8 +13,8 @@ export class FooterComponent implements OnInit {
   version: string;
 
   constructor() {
-    this.title = AppModule.APP_TITLE;
-    this.version = AppModule.APP_VERSION;
+    this.title = Constants.APP_TITLE;
+    this.version = Constants.APP_VERSION;
   }
 
   ngOnInit(): void {

@@ -1,5 +1,8 @@
-<mat-card fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap=".5rem">
-  <ng-container *ngFor="let category of categories; let i = index">
-    <a class="category-button" [routerLink]="'/category/'+category.id" mat-flat-button color="primary">{{category.name}}</a>
-  </ng-container>
+<mat-card class="categories-card">
+  <mat-card-title>Πίνακες</mat-card-title>
+  <mat-card-actions fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap=".5rem">
+    <ng-container *ngFor="let category of categories; let i = index">
+      <a [routerLink]="'/announcements/category/'+category.id" mat-flat-button color="primary">{{category.name}}</a>
+    </ng-container>
+  </mat-card-actions>
 </mat-card>

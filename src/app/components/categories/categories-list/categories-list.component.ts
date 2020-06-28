@@ -21,12 +21,8 @@ export class CategoriesListComponent implements OnInit {
 
   getCategoriesList() {
     this.service.getCategoriesPublic()
-      .subscribe(data => {
-        if (Array.isArray(data)) {
-          data.forEach(item => {
-            this.categories.push(new CategoryModel(item));
-          })
-        }
+      .subscribe(result => {
+        this.categories = result;
       })
   }
 

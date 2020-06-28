@@ -1,10 +1,8 @@
-<div class="feature-list full-width" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="1rem">
-
+<div class="feature-list" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="1rem">
   <ng-container *ngFor="let feature of features; let i = index">
     <app-feature [title]="feature.title.value"
                  [routerLink]="feature.link"
                  [icon]="feature.icon">
     </app-feature>
   </ng-container>
-
 </div>

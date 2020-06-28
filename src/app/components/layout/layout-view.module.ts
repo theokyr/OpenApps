@@ -13,6 +13,7 @@ import {AppRoutingModule} from "../../shared-angular/routing/app-routing.module"
 import {MatButtonModule} from "@angular/material/button";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { FeatureComponent } from './feature/feature.component';
+import {MatDividerModule} from "@angular/material/divider";
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FeatureComponent } from './feature/feature.component';
     MatCardModule,
     MatRippleModule,
     MatButtonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatDividerModule
   ]
 })
 export class LayoutViewModule {

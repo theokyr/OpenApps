@@ -1,6 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AnnouncementsApiService} from "../../../lib-angular/announcements/announcements-api.service";
 import {AnnouncementModel} from "../../../lib-ts/announcements/announcement.model";
+import {CategoriesApiService} from "../../../lib-angular/categories/categories-api.service";
+import {CategoryModel} from "../../../lib-ts/categories/category.model";
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-announcements-list',
@@ -13,8 +16,9 @@ export class AnnouncementsListComponent implements OnInit {
   paginated: boolean;
 
   public announcements: AnnouncementModel[];
+  public categories: CategoryModel[] = [];
 
-  constructor(public service: AnnouncementsApiService) {
+  constructor(public service: AnnouncementsApiService, public categoriesService: CategoriesApiService) {
     this.announcements = [];
   }
 
@@ -23,15 +27,25 @@ export class AnnouncementsListComponent implements OnInit {
   }
 
   getAnnouncementsList() {
-    let observable = this.paginated ?
+    let categoriesObservable = this.categoriesService.getCategoriesPublic();
+
+    let announcementsObservable = this.paginated ?
       this.service.getAnnouncementsPublicPaginated() : this.service.getAnnouncementsPublic();
 
-    observable
-      .subscribe(data => {
-        if (Array.isArray(data)) {
-          data.forEach(item => {
-            this.announcements.push(new AnnouncementModel(item));
+    let observables = [categoriesObservable, announcementsObservable]
+    forkJoin(observables)
+      .subscribe(res => {
+        this.categories = <CategoryModel[]>res[0];
+        this.announcements = <AnnouncementModel[]>res[1];
+
+        if (this.categories.length > 0) {
+          this.announcements.forEach(announcement => {
+            this.categories.filter(category => category.id == announcement.categoryId)
+              .forEach(category => {
+                announcement.category = category;
+              })
           })
+        } else {
         }
       })
   }

@@ -1,9 +1,9 @@
-<div  class="full-width footer" fxLayout="row" fxLayoutAlign="space-between center">
+<div class="full-width footer" fxLayout="row" fxLayout="row" fxLayout.lt-lg="column" fxLayoutAlign="space-between center">
   <div>
-    <small>This is NOT an official Application of the IEE Department of IHU.
+    <small class="disclaimer">This is NOT an official Application of the IEE Department of IHU.
       Do NOT contact the IEE department for any issues with {{title}}. Use GitHub instead. </small>
   </div>
-  <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="1rem">
+  <div fxLayoutAlign="end center" fxLayoutGap="1rem">
     <span>{{title}} {{version}}</span>
     <a mat-button target="_blank" href="https://github.com/theokyr/OpenApps">
       <fa-icon [icon]="faGithub"></fa-icon>&nbsp;GitHub</a>

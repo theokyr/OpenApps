@@ -8,6 +8,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {SharedAngularModule} from "../../shared-angular/shared-angular.module";
 import {MatListModule} from "@angular/material/list";
 import {MatRippleModule} from "@angular/material/core";
+import {AppRoutingModule} from "../../shared-angular/routing/app-routing.module";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {MatRippleModule} from "@angular/material/core";
     MatButtonModule,
     MatCardModule,
     MatListModule,
-    MatRippleModule
+    MatRippleModule,
+    AppRoutingModule
   ]
 })
 export class AnnouncementsViewModule {
