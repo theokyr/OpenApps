@@ -1,0 +1,26 @@
+<mat-list fxLayout="column" fxLayoutGap=".5rem">
+  <ng-container *ngFor="let announcement of announcements; let i = index">
+    <a class="link-no-style" mat-ripple [routerLink]="'/announcements/view/'+announcement.id">
+      <mat-card class="announcement-card" fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="1rem">
+        <div *ngIf="announcement.category">
+          {{announcement.category.name}}
+        </div>
+        <div *ngIf="!announcement.category">
+          {{announcement.categoryId}}
+        </div>
+        <div>
+          {{announcement.publisher.name}}
+        </div>
+        <div>
+          {{announcement.title.value}}
+        </div>
+        <div>
+          {{announcement.text.value | truncate : 35: false}}
+        </div>
+        <div>
+          {{announcement.date}}
+        </div>
+      </mat-card>
+    </a>
+  </ng-container>
+</mat-list>
