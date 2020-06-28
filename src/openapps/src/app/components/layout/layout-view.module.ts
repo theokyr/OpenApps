@@ -1,16 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BulletinBoardComponent } from './bulletin-board/bulletin-board.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {BulletinBoardComponent} from './bulletin-board/bulletin-board.component';
 import {CategoriesViewModule} from "../categories/categories-view.module";
 import {AnnouncementsViewModule} from "../announcements/announcements-view.module";
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import {HomeComponent} from './home/home.component';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from "@angular/material/card";
 import {MatRippleModule} from "@angular/material/core";
-import {AppRoutingModule} from "../../app-routing.module";
-
+import {AppRoutingModule} from "../../shared-angular/routing/app-routing.module";
+import {MatButtonModule} from "@angular/material/button";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 @NgModule({
@@ -23,10 +24,13 @@ import {AppRoutingModule} from "../../app-routing.module";
     CommonModule,
     CategoriesViewModule,
     AnnouncementsViewModule,
+    AppRoutingModule,
     FlexLayoutModule,
     MatCardModule,
     MatRippleModule,
-    AppRoutingModule
+    MatButtonModule,
+    FontAwesomeModule
   ]
 })
-export class LayoutViewModule { }
+export class LayoutViewModule {
+}

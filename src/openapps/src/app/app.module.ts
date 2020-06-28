@@ -1,14 +1,16 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {AppRoutingModule} from './app-routing.module';
+import {AppRoutingModule} from './shared-angular/routing/app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {LibAppsModule} from "./lib-angular/lib-apps.module";
+import {LibItApiModule} from "./lib-angular/lib-it-api.module";
 import {CategoriesViewModule} from "./components/categories/categories-view.module";
 import {LayoutViewModule} from "./components/layout/layout-view.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {TruncatePipeDirective} from "./shared-angular/truncate-pipe.directive";
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {BaseItApiService} from "./lib-angular/api/base-it-api.service";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -19,12 +21,18 @@ import {TruncatePipeDirective} from "./shared-angular/truncate-pipe.directive";
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    LibAppsModule,
+    LibItApiModule,
     CategoriesViewModule,
-    LayoutViewModule
+    LayoutViewModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
+
+  constructor() {
+    BaseItApiService.setBaseUrl(environment.base_url);
+  }
 }

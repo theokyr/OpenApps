@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AnnouncementsApiService} from "../../../lib-angular/announcements/announcements-api.service";
-import {AnnouncementModel} from "../../../lib/announcements/announcement.model";
+import {AnnouncementModel} from "../../../lib-ts/announcements/announcement.model";
 
 @Component({
   selector: 'app-announcements-list',

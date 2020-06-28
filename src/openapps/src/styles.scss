@@ -46,3 +46,30 @@ body {
 .full-width {
   width: 100%;
 }
+
+.hover-card:hover {
+  opacity: 0.8;
+}
+
+a.link-no-style:link {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+/* visited link */
+a.link-no-style:visited {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+/* mouse over link */
+a.link-no-style:hover {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+/* selected link */
+a.link-no-style:active {
+  color: #fff;
+  text-decoration: none !important;
+}

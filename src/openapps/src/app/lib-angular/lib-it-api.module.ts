@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
-import {BaseApiService} from "./api/base-api.service";
+import {BaseItApiService} from "./api/base-it-api.service";
 import {AnnouncementsLibModule} from "./announcements/announcements-lib.module";
 import {CategoriesLibModule} from "./categories/categories-lib.module";
 
@@ -15,8 +15,8 @@ import {CategoriesLibModule} from "./categories/categories-lib.module";
     CategoriesLibModule
   ],
   providers: [
-    BaseApiService
+    BaseItApiService
   ]
 })
-export class LibAppsModule {
+export class LibItApiModule {
 }

@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {BaseApiService} from "../api/base-api.service";
+import {BaseItApiService} from "../api/base-it-api.service";
 import {HttpClient} from "@angular/common/http";
-import {CategoryEndpoints} from "../../lib/categories/category.endpoints";
+import {CategoryEndpoints} from "../../lib-ts/categories/category.endpoints";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriesApiService extends BaseApiService {
+export class CategoriesApiService extends BaseItApiService {
 
   constructor(http: HttpClient) {
     super(http);

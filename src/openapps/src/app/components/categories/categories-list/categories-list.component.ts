@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CategoriesApiService} from "../../../lib-angular/categories/categories-api.service";
-import {CategoryModel} from "../../../lib/categories/category.model";
+import {CategoryModel} from "../../../lib-ts/categories/category.model";
 
 @Component({
   selector: 'app-categories-list',
@@ -22,7 +22,7 @@ export class CategoriesListComponent implements OnInit {
   getCategoriesList() {
     this.service.getCategoriesPublic()
       .subscribe(data => {
-        if (Array.isArray(data)){
+        if (Array.isArray(data)) {
           data.forEach(item => {
             this.categories.push(new CategoryModel(item));
           })

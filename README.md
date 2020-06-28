@@ -1,5 +1,8 @@
 # OpenApps
-Open Source IEEE Apps client on Angular v10.0
+Angular v10.0 client for [IT_API](https://github.com/apavlidi/IT_API/).
+Current features:
+ * Categories (Public)
+ * Announcements (Public)
 
 ## Requirements
 * [Node.js](https://nodejs.org/en/download/) (built with LTS v12.18.1)
@@ -10,7 +13,7 @@ Open Source IEEE Apps client on Angular v10.0
    ```shell script
     npm install
     ```
-2. Update `src/openapps/environments/environment.ts` with your Apps API key.
+2. Update `src/openapps/src/environments/environment.ts` with your Apps API key, and the Base URL of the API you are using.
 
 
 ## Usage
@@ -22,10 +25,11 @@ Open Source IEEE Apps client on Angular v10.0
 2. You'll find the dev server running on [http://localhost:4200](http://localhost:4200).
 
 ### Production
-1. To serve a production build, first you'll have to copy your environments file to a production build:
+1. To serve a production build, first you'll have to create a copy of your environments file to a production build:
     ```
     cp src/openapps/environments/environment.ts src/openapps/environments/environment.prod.ts
     ```
+2. Make sure you are using your production API key!
 2. Serve the production build:
     ```shell script
     ng serve --prod
