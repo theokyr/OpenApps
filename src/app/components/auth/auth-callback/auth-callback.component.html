@@ -1,0 +1,13 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+  <div *ngIf="access_token">
+    Success! Access Token: {{access_token}}
+  </div>
+
+  <div *ngIf="!access_token && error">
+    Failure! Error: {{error}} {{error_description}} {{error_reason}}
+  </div>
+
+  <div *ngIf="!access_token && !error">
+    Failure! No reason given. <a mat-flat-button routerLink="/">Return to home.</a>
+  </div>
+</div>
