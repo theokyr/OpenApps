@@ -18,11 +18,11 @@ Angular v10.0 client for [IT_API](https://github.com/apavlidi/IT_API/).
 * Any node package manager (npm will do just fine)
 
 ## Setup
-1. Install dependencies by running the following inside the repository's `src/openapps/` directory:
+1. Install dependencies by running the following inside the repository:
    ```shell script
     npm install
     ```
-2. Update `src/openapps/src/environments/environment.ts` with your Apps API key, and the Base URL of the API you are using.
+2. Update `src/environments/environment.ts` with the Base URL of the API you are using.
 
 
 ## Usage
@@ -36,12 +36,12 @@ Angular v10.0 client for [IT_API](https://github.com/apavlidi/IT_API/).
 ### Production
 1. To serve a production build, first you'll have to create a copy of your environments file to a production build:
     ```
-    cp src/openapps/environments/environment.ts src/openapps/environments/environment.prod.ts
+    cp src/environments/environment.ts src/openapps/environments/environment.prod.ts
     ```
-2. Make sure you are using your production API key!
-2. Serve the production build:
+2. Make sure to modify the `environment.prod.ts` file with any changes your production build needs.
+3. Build the production build:
     ```shell script
-    ng serve --prod
+    ng build --prod
     ```
 
 ## License
