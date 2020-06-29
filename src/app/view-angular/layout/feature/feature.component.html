@@ -1,8 +1,31 @@
-<a class="link-no-style" [routerLink]="routerLink">
-  <div mat-ripple>
-    <mat-card class="app-card" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1rem">
-      <fa-icon [size]="'3x'" [icon]="icon"></fa-icon>
-      <div class="app-card-title">{{title}}</div>
-    </mat-card>
-  </div>
-</a>
+<div>
+  <mat-card class="app-card" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="1rem">
+
+    <mat-card-header class="privacy-header" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap=".25rem">
+      <ng-container *ngIf="isPublic">
+        <fa-icon [icon]="faPublic"></fa-icon>
+        <span>Δημόσια εφαρμογή</span>
+      </ng-container>
+      <ng-container *ngIf="!isPublic">
+        <fa-icon [icon]="faPrivate"></fa-icon>
+        <span>Ιδιωτική εφαρμογή</span>
+      </ng-container>
+    </mat-card-header>
+
+    <fa-icon [size]="'3x'" [icon]="icon"></fa-icon>
+    <div class="app-card-title">{{title}}</div>
+    <div class="full-width" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap=".5rem">
+      <a *ngIf="infoLink" mat-flat-button color="primary" [href]="infoLink">
+        <fa-icon [icon]="faInfo"></fa-icon>
+      </a>
+      <a *ngIf="isRouterLink" mat-flat-button color="primary"
+         [routerLink]="link">
+        <fa-icon [icon]="faOpen"></fa-icon>
+      </a>
+      <a *ngIf="!isRouterLink" mat-flat-button color="primary"
+         [href]="link">
+        <fa-icon [icon]="faOpen"></fa-icon>
+      </a>
+    </div>
+  </mat-card>
+</div>

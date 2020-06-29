@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {faNewspaper} from "@fortawesome/free-solid-svg-icons/faNewspaper";
-import {faSearch} from "@fortawesome/free-solid-svg-icons/faSearch";
+import {Features} from "../feature/features";
 import {ApiFeature} from "../../../shared/api-feature.model";
-import {TranslatedText} from "../../../lib/announcements/translated-text";
 
 @Component({
   selector: 'app-home',
@@ -10,26 +8,14 @@ import {TranslatedText} from "../../../lib/announcements/translated-text";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  static faNewspaper = faNewspaper;
-  static faSearch = faSearch;
 
-  features = [
-    new ApiFeature(
-      new TranslatedText("Ανακοινώσεις", "Announcements"),
-      "/announcements/",
-      faNewspaper,
-      true),
-    new ApiFeature(
-      new TranslatedText("Υπηρεσία Καταλόγου", "User Catalog"),
-      "/users/",
-      faSearch,
-      true),
-  ];
+  features: ApiFeature[];
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.features = Features.features;
   }
 
 }

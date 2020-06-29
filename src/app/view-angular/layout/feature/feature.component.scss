@@ -1,9 +1,14 @@
 .app-card {
   width: 16rem;
-  height: 12rem;
+  height: 14rem;
 }
 
-.app-card:hover {
+.privacy-header {
+  width: 16rem;
+  height: 1rem;
+}
+
+a:hover {
   opacity: 0.8;
 }
 
