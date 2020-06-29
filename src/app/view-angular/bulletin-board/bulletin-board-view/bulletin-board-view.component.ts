@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {AnnouncementModel} from "../../lib-ts/announcements/announcement.model";
-import {CategoryModel} from "../../lib-ts/categories/category.model";
-import {AnnouncementsApiService} from "../../lib-angular/announcements/announcements-api.service";
-import {CategoriesApiService} from "../../lib-angular/categories/categories-api.service";
+import {AnnouncementModel} from "../../../lib-ts/announcements/announcement.model";
+import {CategoryModel} from "../../../lib-ts/categories/category.model";
+import {AnnouncementsApiService} from "../../../lib-angular/announcements/announcements-api.service";
+import {CategoriesApiService} from "../../../lib-angular/categories/categories-api.service";
 import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-home',
-  templateUrl: './bulletin-board.component.html',
-  styleUrls: ['./bulletin-board.component.scss']
+  templateUrl: './bulletin-board-view.component.html',
+  styleUrls: ['./bulletin-board-view.component.scss']
 })
-export class BulletinBoardComponent implements OnInit {
+export class BulletinBoardViewComponent implements OnInit {
 
   constructor(public categoriesService: CategoriesApiService,
               public announcementsService: AnnouncementsApiService) {

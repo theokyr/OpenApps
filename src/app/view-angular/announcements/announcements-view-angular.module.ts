@@ -28,5 +28,5 @@ import {AppRoutingModule} from "../../shared-angular/routing/app-routing.module"
     AppRoutingModule
   ]
 })
-export class AnnouncementsViewModule {
+export class AnnouncementsViewAngularModule {
 }

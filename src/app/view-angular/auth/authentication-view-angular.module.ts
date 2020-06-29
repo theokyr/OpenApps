@@ -16,4 +16,4 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     FlexLayoutModule
   ]
 })
-export class AuthenticationViewModuleModule { }
+export class AuthenticationViewAngularModule { }

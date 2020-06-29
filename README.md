@@ -1,17 +1,24 @@
 # OpenApps
 Angular v10.0 client for [IT_API](https://github.com/apavlidi/IT_API/).
+
+You can find a version of the app deployed on Firebase here: 
+[http://openapps-it.web.app/](http://openapps-it.web.app/)
+
 * Current features:
     * Read Categories (Public)
     * Read Announcements (Public)
 * Planned features:
-    * Category Filtering
-    * Announcement Pagination
+    * User Search (Public)
     * Authentication:
         * Login flow
         * Read Categories (Private)
         * Read Announcements (Private)
+    * Category Filtering
+    * Announcement Pagination
     * Localization
     * Theme support (coloring and light/dark theme)
+    
+Bleeding edge development happens on the [dev](https://github.com/theokyr/OpenApps/tree/dev) branch.
 
 ## Requirements
 * [Node.js](https://nodejs.org/en/download/) (built with LTS v12.18.1)

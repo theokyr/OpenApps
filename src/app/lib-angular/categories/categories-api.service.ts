@@ -34,7 +34,7 @@ export class CategoriesApiService extends BaseItApiService {
           console.debug(`[angular-it-api] Fetched ${result.length} categories`);
           return result;
         }), catchError(error => {
-          return throwError(`API Error: ${error}`);
+          return throwError(`[angular-it-api] API Error: ${error}`);
         })
       )
   }

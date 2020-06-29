@@ -5,14 +5,14 @@ import {AppRoutingModule} from './shared-angular/routing/app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LibItApiModule} from "./lib-angular/lib-it-api.module";
-import {CategoriesViewModule} from "./components/categories/categories-view.module";
-import {LayoutViewModule} from "./components/layout/layout-view.module";
+import {CategoriesViewAngularModule} from "./view-angular/categories/categories-view-angular.module";
+import {LayoutViewAngularModule} from "./view-angular/layout/layout-view-angular.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {BaseItApiService} from "./lib-angular/api/base-it-api.service";
 import {environment} from "../environments/environment";
-import {BulletinBoardViewModule} from "./components/bulletin-board/bulletin-board-view.module";
-import {AuthenticationViewModuleModule} from "./components/auth/authentication-view-module.module";
+import {BulletinBoardAngularModule} from "./view-angular/bulletin-board/bulletin-board-angular.module";
+import {AuthenticationViewAngularModule} from "./view-angular/auth/authentication-view-angular.module";
 
 @NgModule({
   declarations: [
@@ -25,10 +25,10 @@ import {AuthenticationViewModuleModule} from "./components/auth/authentication-v
     FontAwesomeModule,
     FlexLayoutModule,
     LibItApiModule,
-    AuthenticationViewModuleModule,
-    BulletinBoardViewModule,
-    LayoutViewModule,
-    CategoriesViewModule
+    AuthenticationViewAngularModule,
+    BulletinBoardAngularModule,
+    LayoutViewAngularModule,
+    CategoriesViewAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {CategoriesViewModule} from "../categories/categories-view.module";
-import {AnnouncementsViewModule} from "../announcements/announcements-view.module";
+import {CategoriesViewAngularModule} from "../categories/categories-view-angular.module";
+import {AnnouncementsViewAngularModule} from "../announcements/announcements-view-angular.module";
 import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
@@ -23,8 +23,8 @@ import {MatDividerModule} from "@angular/material/divider";
   ],
   imports: [
     CommonModule,
-    CategoriesViewModule,
-    AnnouncementsViewModule,
+    CategoriesViewAngularModule,
+    AnnouncementsViewAngularModule,
     AppRoutingModule,
     FlexLayoutModule,
     MatCardModule,
@@ -34,5 +34,5 @@ import {MatDividerModule} from "@angular/material/divider";
     MatDividerModule
   ]
 })
-export class LayoutViewModule {
+export class LayoutViewAngularModule {
 }

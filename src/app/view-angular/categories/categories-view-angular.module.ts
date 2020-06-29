@@ -22,5 +22,5 @@ import {AppRoutingModule} from "../../shared-angular/routing/app-routing.module"
     AppRoutingModule
   ]
 })
-export class CategoriesViewModule {
+export class CategoriesViewAngularModule {
 }

@@ -5,12 +5,13 @@ import {AnnouncementEndpoints} from "../../lib-ts/announcements/announcement.end
 import {Observable, throwError} from "rxjs";
 import {AnnouncementModel} from "../../lib-ts/announcements/announcement.model";
 import {catchError, map} from "rxjs/operators";
-import {CategoriesApiService} from "../categories/categories-api.service";
+import {UserEndpoints} from "../../lib-ts/users/user.endpoints";
+import {UserModel} from "../../lib-ts/users/user.model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AnnouncementsApiService extends BaseItApiService {
+export class UsersApiService extends BaseItApiService {
 
   constructor(http: HttpClient) {
     super(http);
@@ -18,13 +19,13 @@ export class AnnouncementsApiService extends BaseItApiService {
 
   public getAnnouncementsPublic(): Observable<AnnouncementModel[]> {
     return super
-      .get(AnnouncementEndpoints.ENDPOINT_GET_ANNOUNCEMENTS_PUBLIC, [])
+      .get(UserEndpoints.ENDPOINT_GET_USERS_PUBLIC, [])
       .pipe(
         map((data) => {
           let result = [];
           if (Array.isArray(data)) {
             data.forEach(item => {
-              result.push(new AnnouncementModel(item));
+              result.push(new UserModel(item));
             })
           }
           return result;
@@ -38,7 +39,7 @@ export class AnnouncementsApiService extends BaseItApiService {
     return super.get(AnnouncementEndpoints.ENDPOINT_GET_ANNOUNCEMENTS_PUBLIC_PAGINATED, [])
       .pipe(
         map((data) => {
-          let result : AnnouncementModel[] = [];
+          let result: AnnouncementModel[] = [];
           if (Array.isArray(data)) {
             data.forEach(item => {
               result.push(new AnnouncementModel(item));
