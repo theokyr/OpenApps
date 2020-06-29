@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {BaseItApiService} from "../api/base-it-api.service";
 import {HttpClient} from "@angular/common/http";
-import {CategoryEndpoints} from "../../lib-ts/categories/category.endpoints";
-import {CategoryModel} from "../../lib-ts/categories/category.model";
+import {CategoryEndpoints} from "../../lib/categories/category.endpoints";
+import {CategoryModel} from "../../lib/categories/category.model";
 import {catchError, map} from "rxjs/operators";
 import {Observable, of, throwError} from "rxjs";
 
@@ -34,7 +34,7 @@ export class CategoriesApiService extends BaseItApiService {
           console.debug(`[angular-it-api] Fetched ${result.length} categories`);
           return result;
         }), catchError(error => {
-          return throwError(`API Error: ${error}`);
+          return throwError(`[angular-it-api] API Error: ${error}`);
         })
       )
   }
