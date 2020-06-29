@@ -13,10 +13,12 @@ import {BaseItApiService} from "./lib-angular/api/base-it-api.service";
 import {environment} from "../environments/environment";
 import {BulletinBoardAngularModule} from "./view-angular/bulletin-board/bulletin-board-angular.module";
 import {AuthenticationViewAngularModule} from "./view-angular/auth/authentication-view-angular.module";
+import { UsersListComponent } from './view-angular/users/users-list/users-list.component';
+import {UsersViewAngularModule} from "./view-angular/users/users-view-angular.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import {AuthenticationViewAngularModule} from "./view-angular/auth/authenticatio
     AuthenticationViewAngularModule,
     BulletinBoardAngularModule,
     LayoutViewAngularModule,
-    CategoriesViewAngularModule
+    CategoriesViewAngularModule,
+    UsersViewAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]

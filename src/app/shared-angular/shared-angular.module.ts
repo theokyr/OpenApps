@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {TruncatePipeDirective} from "./truncate-pipe.directive";
-import {LibItApiModule} from "../lib-angular/lib-it-api.module";
+import {TruncatePipeDirective} from "./directives/truncate-pipe.directive";
 
 @NgModule({
   declarations: [TruncatePipeDirective],
@@ -9,8 +8,7 @@ import {LibItApiModule} from "../lib-angular/lib-it-api.module";
     CommonModule,
   ],
   exports: [
-    TruncatePipeDirective,
-    LibItApiModule
+    TruncatePipeDirective
   ]
 })
 export class SharedAngularModule {

@@ -1,3 +1,3 @@
 export class CategoryEndpoints {
-  public static ENDPOINT_GET_CATEGORIES_PUBLIC = "categories/public/";
+  public static readonly ENDPOINT_GET_CATEGORIES_PUBLIC = "categories/public/";
 }
