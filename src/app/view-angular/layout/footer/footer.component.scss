@@ -1,0 +1,49 @@
+.footer {
+  background-color: #262626;
+  padding: 1rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  min-height: 6vh;
+  height: 6vh;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.disclaimer {
+  opacity: 0.6;
+}
+
+$breakpoint-tablet: 768px;
+@media (max-width: $breakpoint-tablet) {
+  .footer {
+    height: 10vh;
+    min-height: 10vh;
+  }
+}
+
+a.text-link:link {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+/* visited link */
+a.text-link:visited {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+/* mouse over link */
+a.text-link:hover {
+  color: #fff;
+  opacity: 0.8;
+  text-decoration: none !important;
+}
+
+/* selected link */
+a.text-link:active {
+  color: #fff;
+  opacity: 0.6;
+  text-decoration: none !important;
+}
