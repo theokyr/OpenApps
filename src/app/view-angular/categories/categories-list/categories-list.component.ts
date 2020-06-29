@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CategoryModel} from "../../../lib-ts/categories/category.model";
+import {CategoryModel} from "../../../lib/categories/category.model";
 
 @Component({
   selector: 'app-categories-list',

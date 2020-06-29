@@ -1,1 +1,22 @@
-<p>users-list works!</p>
+<div class="bulletin-board" fxLayout="column" fxLayoutAlign="stretch">
+  <h1>Users</h1>
+  <mat-list fxLayout="column" fxLayoutGap=".5rem">
+    <ng-container *ngFor="let user of users; let i = index">
+      <a class="link-no-style" mat-ripple [routerLink]="'/users/view/'+user.id">
+        <mat-card class="user-card" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="1rem">
+          <img *ngIf="user.profilePhoto" class="avatar" [src]="user.profilePhoto"/>
+          <div class="avatar-none" *ngIf="!user.profilePhoto">
+
+          </div>
+          <div>
+            {{user.displayName.value}}
+          </div>
+          <div>
+            {{user.description.value}}
+          </div>
+        </mat-card>
+      </a>
+    </ng-container>
+  </mat-list>
+
+</div>

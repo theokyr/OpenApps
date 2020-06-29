@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {faNewspaper} from "@fortawesome/free-solid-svg-icons/faNewspaper";
 import {faSearch} from "@fortawesome/free-solid-svg-icons/faSearch";
 import {ApiFeature} from "../../../shared/api-feature.model";
-import {TranslatedText} from "../../../lib-ts/announcements/translated-text";
+import {TranslatedText} from "../../../lib/announcements/translated-text";
 
 @Component({
   selector: 'app-home',

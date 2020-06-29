@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AnnouncementModel} from "../../../lib-ts/announcements/announcement.model";
-import {CategoryModel} from "../../../lib-ts/categories/category.model";
+import {AnnouncementModel} from "../../../lib/announcements/announcement.model";
+import {CategoryModel} from "../../../lib/categories/category.model";
 import {AnnouncementsApiService} from "../../../lib-angular/announcements/announcements-api.service";
 import {CategoriesApiService} from "../../../lib-angular/categories/categories-api.service";
 import {forkJoin} from "rxjs";
@@ -12,24 +12,18 @@ import {forkJoin} from "rxjs";
 })
 export class BulletinBoardViewComponent implements OnInit {
 
+  public announcements: AnnouncementModel[] = [];
+  public categories: CategoryModel[] = [];
+
   constructor(public categoriesService: CategoriesApiService,
               public announcementsService: AnnouncementsApiService) {
   }
-
-
-  public announcements: AnnouncementModel[] = [];
-  public categories: CategoryModel[] = [];
 
   ngOnInit(): void {
     this.getBulletinBoard();
   }
 
   getBulletinBoard() {
-    let categoriesObservable = this.categoriesService.getCategoriesPublic();
-
-    // let announcementsObservable = this.paginated ?
-    //   this.service.getAnnouncementsPublicPaginated() : this.service.getAnnouncementsPublic();
-
     let observables = [
       this.categoriesService.getCategoriesPublic(),
       this.announcementsService.getAnnouncementsPublicPaginated()

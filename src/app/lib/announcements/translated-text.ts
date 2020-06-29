@@ -9,6 +9,9 @@ export class TranslatedText {
 
   // TODO: Ideally this will be replaced with a proper translation library/solution in the future.
   get value() {
+    if (!this._text) {
+      return this._textEn;
+    }
     return this._text;
   }
 }

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {BaseItApiService} from "../api/base-it-api.service";
 import {HttpClient} from "@angular/common/http";
-import {CategoryEndpoints} from "../../lib-ts/categories/category.endpoints";
-import {CategoryModel} from "../../lib-ts/categories/category.model";
+import {CategoryEndpoints} from "../../lib/categories/category.endpoints";
+import {CategoryModel} from "../../lib/categories/category.model";
 import {catchError, map} from "rxjs/operators";
 import {Observable, of, throwError} from "rxjs";
 

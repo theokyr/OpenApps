@@ -18,7 +18,32 @@
 $breakpoint-tablet: 768px;
 @media (max-width: $breakpoint-tablet) {
   .footer {
-    height:10vh;
+    height: 10vh;
     min-height: 10vh;
   }
+}
+
+a.text-link:link {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+/* visited link */
+a.text-link:visited {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+/* mouse over link */
+a.text-link:hover {
+  color: #fff;
+  opacity: 0.8;
+  text-decoration: none !important;
+}
+
+/* selected link */
+a.text-link:active {
+  color: #fff;
+  opacity: 0.6;
+  text-decoration: none !important;
 }

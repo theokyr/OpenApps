@@ -15,21 +15,24 @@ export class SocialMedia {
   private readonly _scopusID: string;
 
   constructor(obj: any) {
+    console.log(obj)
     this._socialMediaExtra = [];
-    obj._socialMediaExtra.forEach(extra => {
-      this._socialMediaExtra.push(new SocialMediaExtra(extra));
-    });
-    this._facebook = obj._facebook;
-    this._twitter = obj._twitter;
-    this._github = obj._github;
-    this._googlePlus = obj._googlePlus;
-    this._linkedIn = obj._linkedIn;
-    this._researchGate = obj._researchGate;
-    this._microsoftAcademic = obj._microsoftAcademic;
-    this._googleScholarID = obj._googleScholarID;
-    this._orcid = obj._orcid;
-    this._researchID = obj._researchID;
-    this._scopusID = obj._scopusID;
+    if (obj.socialMediaExtra) {
+      obj.socialMediaExtra.forEach(extra => {
+        this._socialMediaExtra.push(new SocialMediaExtra(extra));
+      });
+    }
+    this._facebook = obj.facebook;
+    this._twitter = obj.twitter;
+    this._github = obj.github;
+    this._googlePlus = obj.googlePlus;
+    this._linkedIn = obj.linkedIn;
+    this._researchGate = obj.researchGate;
+    this._microsoftAcademic = obj.microsoftAcademic;
+    this._googleScholarID = obj.googleScholarID;
+    this._orcid = obj.orcid;
+    this._researchID = obj.researchID;
+    this._scopusID = obj.scopusID;
   }
 
   get socialMediaExtra(): SocialMediaExtra[] {

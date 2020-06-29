@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
 import {BaseItApiService} from "../api/base-it-api.service";
 import {HttpClient} from "@angular/common/http";
-import {AnnouncementEndpoints} from "../../lib-ts/announcements/announcement.endpoints";
+import {AnnouncementEndpoints} from "../../lib/announcements/announcement.endpoints";
 import {Observable, throwError} from "rxjs";
-import {AnnouncementModel} from "../../lib-ts/announcements/announcement.model";
+import {AnnouncementModel} from "../../lib/announcements/announcement.model";
 import {catchError, map} from "rxjs/operators";
-import {CategoriesApiService} from "../categories/categories-api.service";
 
 @Injectable({
   providedIn: 'root'

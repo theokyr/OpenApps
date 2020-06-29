@@ -1,4 +1,4 @@
-import {TranslatedText} from "../lib-ts/announcements/translated-text";
+import {TranslatedText} from "../lib/announcements/translated-text";
 
 export class ApiFeature {
   private readonly _title: TranslatedText;

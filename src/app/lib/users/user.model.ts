@@ -22,20 +22,22 @@ export class UserModel extends ApiResponseModel {
 
   constructor(obj: any) {
     super(obj.id);
-    this._eduPersonAffiliation = obj._eduPersonAffiliation;
-    this._title = new TranslatedText(obj["title;lang-el"], obj._title);
-    this._displayName = new TranslatedText(obj["displayName;lang-el"], obj._displayName);
-    this._labeledURI = obj._labeledURI;
-    this._knowledgeInformation = obj._knowledgeInformation;
-    this._secondarymail = obj._secondarymail;
-    this._description = new TranslatedText(obj["description;lang-el"], obj._description);
-    this._street = new TranslatedText(obj["street;lang-el"], obj._street);
-    this._personalTitle = obj._personalTitle;
-    this._telephoneNumber = obj._telephoneNumber;
-    this._eduPersonEntitlement = new TranslatedText(obj["eduPersonEntitlement;lang-el"], obj._eduPersonEntitlement);
-    this._serNumber = obj._serNumber;
-    this._socialMedia = new SocialMedia(obj._socialMedia);
-    this._profilePhoto = obj._profilePhoto;
+    this._eduPersonAffiliation = obj.eduPersonAffiliation;
+    this._title = new TranslatedText(obj["title;lang-el"], obj.title);
+    this._displayName = new TranslatedText(obj["displayName;lang-el"], obj.displayName);
+    this._labeledURI = obj.labeledURI;
+    this._knowledgeInformation = obj.knowledgeInformation;
+    this._secondarymail = obj.secondarymail;
+    this._description = new TranslatedText(obj["description;lang-el"], obj.description);
+    this._street = new TranslatedText(obj["street;lang-el"], obj.street);
+    this._personalTitle = obj.personalTitle;
+    this._telephoneNumber = obj.telephoneNumber;
+    this._eduPersonEntitlement = new TranslatedText(obj["eduPersonEntitlement;lang-el"], obj.eduPersonEntitlement);
+    this._serNumber = obj.serNumber;
+    if (obj.socialMedia) {
+      this._socialMedia = new SocialMedia(obj.socialMedia);
+    }
+    this._profilePhoto = obj.profilePhoto;
   }
 
   get eduPersonAffiliation(): string {
