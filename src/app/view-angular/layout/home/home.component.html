@@ -11,9 +11,15 @@
                    [link]="feature.link"
                    [infoLink]="feature.infoLink"
                    [icon]="feature.icon"
-                   [isPublic]="feature.isPublic">
+                   [featureState]="feature.isPublic">
       </app-feature>
     </ng-container>
+    <app-feature [title]="featureSignIn.title.value"
+                 [link]="featureSignIn.link"
+                 [infoLink]="featureSignIn.infoLink"
+                 [icon]="featureSignIn.icon"
+                 [featureState]="featureSignIn.isPublic">
+    </app-feature>
   </div>
 
 </div>

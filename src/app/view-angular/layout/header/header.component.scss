@@ -1,6 +1,5 @@
 .header {
-  background-color: #5c6bc0;
-  padding: 1rem;
+  background-color: #546e7a;
   position: fixed;
   left: 0;
   top: 0;
@@ -11,7 +10,20 @@
   z-index: 1;
 }
 
+.nav-bar {
+  padding: 1rem;
+}
+
 .app-title {
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.btn-active {
+  background-color: #333;
+}
+
+.app-button {
+  padding: 1rem 2rem !important;
+  border-radius: 0;
 }

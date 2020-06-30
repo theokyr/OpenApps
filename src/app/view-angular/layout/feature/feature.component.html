@@ -1,31 +1,61 @@
 <div>
+  <ng-container *ngIf="featureState == API_FEATURE_STATE_PUBLIC">
+    <mat-card class="feature-status feature-status-public"
+              fxLayout="row" fxLayoutAlign="start center"
+              fxLayoutGap=".25rem">
+      <fa-icon [icon]="faPublic"></fa-icon>
+      <span>Δημόσια εφαρμογή</span>
+    </mat-card>
+  </ng-container>
+  <ng-container *ngIf="featureState == API_FEATURE_STATE_PRIVATE">
+    <mat-card class="feature-status feature-status-private"
+              fxLayout="row" fxLayoutAlign="start center"
+              fxLayoutGap=".25rem">
+      <fa-icon [icon]="faPrivate"></fa-icon>
+      <span>Ιδιωτική εφαρμογή</span>
+    </mat-card>
+  </ng-container>
+  <ng-container *ngIf="featureState == API_FEATURE_STATE_SIGNED_OUT">
+    <mat-card class="feature-status feature-status-signed-out"
+              fxLayout="row" fxLayoutAlign="start center"
+              fxLayoutGap=".25rem">
+      <fa-icon [icon]="faUserSignedOut"></fa-icon>
+      <span>Είστε αποσυνδεδεμένοι</span>
+    </mat-card>
+  </ng-container>
+  <ng-container *ngIf="featureState == API_FEATURE_STATE_SIGNED_IN">
+    <mat-card class="feature-status feature-status-signed-in"
+              fxLayout="row" fxLayoutAlign="start center"
+              fxLayoutGap=".25rem">
+      <fa-icon [icon]="faUserSignedIn"></fa-icon>
+      <span>Είστε συνδεδεμένοι</span>
+    </mat-card>
+  </ng-container>
+
   <mat-card class="app-card" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="1rem">
-
-    <mat-card-header class="privacy-header" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap=".25rem">
-      <ng-container *ngIf="isPublic">
-        <fa-icon [icon]="faPublic"></fa-icon>
-        <span>Δημόσια εφαρμογή</span>
-      </ng-container>
-      <ng-container *ngIf="!isPublic">
-        <fa-icon [icon]="faPrivate"></fa-icon>
-        <span>Ιδιωτική εφαρμογή</span>
-      </ng-container>
-    </mat-card-header>
-
     <fa-icon [size]="'3x'" [icon]="icon"></fa-icon>
     <div class="app-card-title">{{title}}</div>
-    <div class="full-width" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap=".5rem">
-      <a *ngIf="infoLink" mat-flat-button color="primary" [href]="infoLink">
-        <fa-icon [icon]="faInfo"></fa-icon>
-      </a>
-      <a *ngIf="isRouterLink" mat-flat-button color="primary"
-         [routerLink]="link">
-        <fa-icon [icon]="faOpen"></fa-icon>
-      </a>
-      <a *ngIf="!isRouterLink" mat-flat-button color="primary"
-         [href]="link">
-        <fa-icon [icon]="faOpen"></fa-icon>
-      </a>
-    </div>
   </mat-card>
+</div>
+<div class="full-width" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap=".5rem">
+  <a *ngIf="infoLink"
+     fxFlex="20%"
+     mat-flat-button color="primary"
+     target="_blank"
+     [href]="infoLink">
+    <fa-icon [icon]="faInfo"></fa-icon>&nbsp;
+  </a>
+  <a *ngIf="isRouterLink"
+     [fxFlex]="infoLink ? '80%' : '100%'"
+     mat-flat-button color="primary"
+     [routerLink]="link">
+    <fa-icon [icon]="faOpen"></fa-icon>&nbsp;Μετάβαση
+  </a>
+  <a *ngIf="!isRouterLink"
+     [fxFlex]="infoLink ? '80%' : '100%'"
+     mat-flat-button color="primary"
+     target="_blank"
+     [href]="link">
+    <fa-icon [icon]="faOpen"></fa-icon>&nbsp;Μετάβαση
+  </a>
 </div>

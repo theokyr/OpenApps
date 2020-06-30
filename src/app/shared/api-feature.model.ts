@@ -1,13 +1,14 @@
 import {TranslatedText} from "../lib/announcements/translated-text";
+import {ApiFeatureStateModel} from "./api-feature-state.model";
 
 export class ApiFeature {
   private readonly _title: TranslatedText;
   private readonly _link: string;
   private readonly _infoLink: string;
   private readonly _icon: Object;
-  private readonly _isPublic: boolean;
+  private readonly _isPublic: ApiFeatureStateModel;
 
-  constructor(title: TranslatedText, link: string, infoLink: string, icon: Object, publicFeature: boolean) {
+  constructor(title: TranslatedText, link: string, infoLink: string, icon: Object, publicFeature: ApiFeatureStateModel) {
     this._title = title;
     this._link = link;
     this._infoLink = infoLink;
@@ -31,7 +32,7 @@ export class ApiFeature {
     return this._icon;
   }
 
-  get isPublic(): boolean {
+  get isPublic(): ApiFeatureStateModel {
     return this._isPublic;
   }
 }

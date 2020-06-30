@@ -3,6 +3,9 @@ import {faGlobe} from "@fortawesome/free-solid-svg-icons/faGlobe";
 import {faLock} from "@fortawesome/free-solid-svg-icons/faLock";
 import {faArrowCircleRight} from "@fortawesome/free-solid-svg-icons/faArrowCircleRight";
 import {faInfoCircle} from "@fortawesome/free-solid-svg-icons/faInfoCircle";
+import {ApiFeatureStateModel} from "../../../shared/api-feature-state.model";
+import {faUserAlt} from "@fortawesome/free-solid-svg-icons/faUserAlt";
+import {faUserAltSlash} from "@fortawesome/free-solid-svg-icons/faUserAltSlash";
 
 @Component({
   selector: 'app-feature',
@@ -10,6 +13,10 @@ import {faInfoCircle} from "@fortawesome/free-solid-svg-icons/faInfoCircle";
   styleUrls: ['./feature.component.scss']
 })
 export class FeatureComponent implements OnInit {
+  public readonly API_FEATURE_STATE_PUBLIC = ApiFeatureStateModel.Public;
+  public readonly API_FEATURE_STATE_PRIVATE = ApiFeatureStateModel.Private;
+  public readonly API_FEATURE_STATE_SIGNED_OUT = ApiFeatureStateModel.SignedOut;
+  public readonly API_FEATURE_STATE_SIGNED_IN = ApiFeatureStateModel.SignedIn;
 
   @Input()
   icon;
@@ -20,12 +27,14 @@ export class FeatureComponent implements OnInit {
   @Input()
   infoLink;
   @Input()
-  isPublic;
+  featureState: ApiFeatureStateModel;
 
   isRouterLink: boolean;
 
   faPublic = faGlobe;
   faPrivate = faLock;
+  faUserSignedOut = faUserAltSlash;
+  faUserSignedIn = faUserAlt;
   faOpen = faArrowCircleRight;
   faInfo = faInfoCircle;
 
