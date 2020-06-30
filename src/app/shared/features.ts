@@ -67,6 +67,6 @@ export class Features {
       "https://www.iee.ihu.gr/ects160/",
       "",
       faDesktop,
-      ApiFeatureStateModel.SignedOut),
+      ApiFeatureStateModel.Public),
   ];
 }
