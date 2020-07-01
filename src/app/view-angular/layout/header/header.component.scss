@@ -27,3 +27,11 @@
   padding: 1rem 2rem !important;
   border-radius: 0;
 }
+
+
+$breakpoint-tablet: 768px;
+@media (max-width: $breakpoint-tablet) {
+  //.header {
+  //  position:absolute;
+  //}
+}

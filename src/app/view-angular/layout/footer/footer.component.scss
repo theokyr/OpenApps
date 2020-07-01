@@ -1,14 +1,12 @@
 .footer {
   background-color: #262626;
   padding: 1rem;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  min-height: 6vh;
-  height: 6vh;
+  //bottom:0;
+  //left:0;
+  //position: fixed;
   width: 100%;
-  overflow: hidden;
-  z-index: 1;
+  //overflow: hidden;
+  //z-index: 1;
 }
 
 .disclaimer {
@@ -18,8 +16,7 @@
 $breakpoint-tablet: 768px;
 @media (max-width: $breakpoint-tablet) {
   .footer {
-    height: 10vh;
-    min-height: 10vh;
+    font-size: 80%;
   }
 }
 

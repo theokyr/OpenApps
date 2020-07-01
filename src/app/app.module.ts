@@ -10,6 +10,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {BaseItApiService} from "./lib-angular/api/base-it-api.service";
 import {environment} from "../environments/environment";
 import {ViewAngularModule} from "./view-angular/view-angular.module";
+import {LayoutViewAngularModule} from "./view-angular/layout/layout-view-angular.module";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ViewAngularModule} from "./view-angular/view-angular.module";
     FontAwesomeModule,
     FlexLayoutModule,
     AngularLibItApiModule,
-    ViewAngularModule
+    LayoutViewAngularModule,
+    ViewAngularModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

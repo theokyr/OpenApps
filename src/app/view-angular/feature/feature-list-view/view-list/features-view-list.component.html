@@ -2,24 +2,24 @@
      fxLayout="row"
      fxLayoutAlign="center center">
   <div class="feature-list"
-       fxLayout="row wrap"
+       fxLayout="column wrap"
        fxLayout.lt-lg="column"
        fxLayoutAlign="center center"
        fxLayoutGap="1rem grid">
     <ng-container *ngFor="let feature of features; let i = index">
-      <app-feature [title]="feature.title.value"
-                   [link]="feature.link"
-                   [infoLink]="feature.infoLink"
-                   [icon]="feature.icon"
-                   [featureState]="feature.isPublic">
-      </app-feature>
+      <app-feature-view-list-item [title]="feature.title.value"
+                                  [link]="feature.link"
+                                  [infoLink]="feature.infoLink"
+                                  [icon]="feature.icon"
+                                  [featureState]="feature.isPublic">
+      </app-feature-view-list-item>
     </ng-container>
-    <app-feature [title]="featureSignIn.title.value"
-                 [link]="featureSignIn.link"
-                 [infoLink]="featureSignIn.infoLink"
-                 [icon]="featureSignIn.icon"
-                 [featureState]="featureSignIn.isPublic">
-    </app-feature>
+    <app-feature-view-list-item [title]="featureSignIn.title.value"
+                                [link]="featureSignIn.link"
+                                [infoLink]="featureSignIn.infoLink"
+                                [icon]="featureSignIn.icon"
+                                [featureState]="featureSignIn.isPublic">
+    </app-feature-view-list-item>
   </div>
 
 </div>

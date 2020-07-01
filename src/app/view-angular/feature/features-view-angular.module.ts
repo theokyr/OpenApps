@@ -7,19 +7,26 @@ import {NgModule} from "@angular/core";
 import {FeaturesViewListComponent} from "./feature-list-view/view-list/features-view-list.component";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatButtonModule} from "@angular/material/button";
-import {FeatureComponent} from "./feature.component";
+import {FeatureViewCardComponent} from "./feature-view/feature-card/feature-view-card.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {FeatureViewListItemComponent} from './feature-view/view-list-item/feature-view-list-item.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatRippleModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
-    FeatureComponent,
+    FeatureViewCardComponent,
     FeaturesViewCardsComponent,
-    FeaturesViewListComponent
+    FeaturesViewListComponent,
+    FeatureViewListItemComponent,
+    FeatureViewCardComponent
   ],
   exports: [
-    FeatureComponent,
+    FeatureViewCardComponent,
     FeaturesViewCardsComponent,
-    FeaturesViewListComponent
+    FeaturesViewListComponent,
+    FeatureViewListItemComponent,
+    FeatureViewCardComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +35,9 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     MatButtonModule,
     MatCardModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatTooltipModule,
+    MatRippleModule
   ]
 })
 export class FeaturesViewAngularModule {

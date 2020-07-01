@@ -1,5 +1,8 @@
-.feature-list {
-  position: relative;
-  width: 60vw;
-  height: 80vh;
+$breakpoint-tablet: 768px;
+@media (min-height: $breakpoint-tablet) {
+  .feature-list {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+  }
 }

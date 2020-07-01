@@ -3,16 +3,16 @@ import {faGlobe} from "@fortawesome/free-solid-svg-icons/faGlobe";
 import {faLock} from "@fortawesome/free-solid-svg-icons/faLock";
 import {faArrowCircleRight} from "@fortawesome/free-solid-svg-icons/faArrowCircleRight";
 import {faInfoCircle} from "@fortawesome/free-solid-svg-icons/faInfoCircle";
-import {ApiFeatureStateModel} from "../../shared/api-feature-state.model";
+import {ApiFeatureStateModel} from "../../../../shared/api-feature-state.model";
 import {faUserAlt} from "@fortawesome/free-solid-svg-icons/faUserAlt";
 import {faUserAltSlash} from "@fortawesome/free-solid-svg-icons/faUserAltSlash";
 
 @Component({
-  selector: 'app-feature',
-  templateUrl: './feature.component.html',
-  styleUrls: ['./feature.component.scss']
+  selector: 'app-feature-view-list-item',
+  templateUrl: './feature-view-list-item.component.html',
+  styleUrls: ['./feature-view-list-item.component.scss']
 })
-export class FeatureComponent implements OnInit {
+export class FeatureViewListItemComponent implements OnInit {
   public readonly API_FEATURE_STATE_PUBLIC = ApiFeatureStateModel.Public;
   public readonly API_FEATURE_STATE_PRIVATE = ApiFeatureStateModel.Private;
   public readonly API_FEATURE_STATE_SIGNED_OUT = ApiFeatureStateModel.SignedOut;
