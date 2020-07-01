@@ -32,29 +32,15 @@
       </mat-card>
     </ng-container>
     <!-- endregion -->
-
-    <!--region Info Link-->
-    <a *ngIf="infoLink"
-       target="_blank"
-       class=""
-       [href]="infoLink">
-      <mat-card
-        class="feature-status  feature-status-info "
-        *ngIf="infoLink"
-        matTooltip="Επιπλέον πληροφορίες"
-        fxLayout="row"
-        fxLayoutAlign="center center">
-        <fa-icon [icon]="faInfo"></fa-icon>
-      </mat-card>
-    </a>
-    <!--endregion-->
   </div>
 
   <a *ngIf="isRouterLink"
      [fxFlex]="infoLink ? '90%' : '100%'"
      [routerLink]="link"
      class="link-no-style">
-    <mat-card matRipple class="app-card" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+    <mat-card matRipple
+              [class]="infoLink ? 'app-card app-card-with-info-box' : 'app-card'"
+              fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
       <fa-icon [size]="'2x'" [icon]="icon"></fa-icon>
       <div class="app-card-title">{{title}}</div>
     </mat-card>
@@ -64,10 +50,28 @@
      target="_blank"
      [href]="link"
      class="link-no-style">
-    <mat-card matRipple class="app-card" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+    <mat-card matRipple
+              [class]="infoLink ? 'app-card app-card-with-info-box' : 'app-card'"
+              fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
       <fa-icon [size]="'2x'" [icon]="icon"></fa-icon>
       <div class="app-card-title">{{title}}</div>
     </mat-card>
   </a>
 
+
+  <!--region Info Link-->
+  <a *ngIf="infoLink"
+     target="_blank"
+     class=""
+     [href]="infoLink">
+    <mat-card
+      class="feature-status  feature-status-info "
+      *ngIf="infoLink"
+      matTooltip="Επιπλέον πληροφορίες"
+      fxLayout="row"
+      fxLayoutAlign="center center">
+      <fa-icon [icon]="faInfo"></fa-icon>
+    </mat-card>
+  </a>
+  <!--endregion-->
 </div>

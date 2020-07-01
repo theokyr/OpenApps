@@ -1,5 +1,9 @@
 .app-card {
   height: 4rem;
+  border-radius: 0 .25rem .25rem 0;
+}
+
+.app-card-with-info-box {
   border-radius: 0;
 }
 
@@ -10,12 +14,12 @@
 .feature-status {
   height: 4rem;
   //width: 2rem;
-  border-radius: .25rem 0rem 0rem .25rem;
+  border-radius: .25rem 0 0 .25rem;
 }
 
 .feature-status-info {
   //width:4rem;
-  border-radius: 0;
+  border-radius: 0 .25rem .25rem 0;
   background-color: #03a9f4;
 }
 
