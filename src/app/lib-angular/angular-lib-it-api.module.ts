@@ -20,5 +20,5 @@ import {UsersLibModule} from "./users/users-lib.module";
     BaseItApiService
   ]
 })
-export class LibItApiModule {
+export class AngularLibItApiModule {
 }

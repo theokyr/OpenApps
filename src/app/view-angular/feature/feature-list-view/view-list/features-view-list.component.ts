@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {Features} from "../../../shared/features";
-import {ApiFeature} from "../../../shared/api-feature.model";
+import {ApiFeature} from "../../../../shared/api-feature.model";
+import {Features} from "../../../../shared/features";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-view-list',
+  templateUrl: './features-view-list.component.html',
+  styleUrls: ['./features-view-list.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class FeaturesViewListComponent implements OnInit {
 
   features: ApiFeature[];
   featureSignIn: ApiFeature;
