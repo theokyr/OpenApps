@@ -12,7 +12,8 @@
     <ng-container *ngIf="featureState == API_FEATURE_STATE_PRIVATE">
       <mat-card class="feature-status feature-status-private"
                 matTooltip="Ιδιωτική εφαρμογή"
-                fxLayout="row" fxLayoutAlign="center center">
+                fxLayout="row"
+                fxLayoutAlign="center center">
         <fa-icon [icon]="faPrivate"></fa-icon>
         <span>Ιδιωτική εφαρμογή</span>
       </mat-card>
@@ -20,7 +21,8 @@
     <ng-container *ngIf="featureState == API_FEATURE_STATE_SIGNED_OUT">
       <mat-card class="feature-status feature-status-signed-out"
                 matTooltip="Είστε αποσυνδεδεμένοι"
-                fxLayout="row" fxLayoutAlign="center center">
+                fxLayout="row"
+                fxLayoutAlign="center center">
         <fa-icon [icon]="faUserSignedOut"></fa-icon>
       </mat-card>
     </ng-container>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FeatureData} from "../../../../shared/feature-data";
 import {ApiFeature} from "../../../../shared/api-feature.model";
+import {ApiFeatureCategoryModel} from "../../../../shared/api-feature-category.model";
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import {ApiFeature} from "../../../../shared/api-feature.model";
 })
 export class FeaturesViewCardsComponent implements OnInit {
 
-  features: ApiFeature[];
+  categories: ApiFeatureCategoryModel[];
   featureSignIn: ApiFeature;
   featureSignOut: ApiFeature;
 
@@ -17,7 +18,7 @@ export class FeaturesViewCardsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.features = FeatureData.features;
+    this.categories = FeatureData.categories;
     this.featureSignIn = FeatureData.featureSignIn;
     this.featureSignOut = FeatureData.featureSignOut;
   }

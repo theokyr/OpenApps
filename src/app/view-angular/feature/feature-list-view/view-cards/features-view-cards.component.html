@@ -6,20 +6,22 @@
        fxLayout.lt-lg="column"
        fxLayoutAlign="center center"
        fxLayoutGap="1rem grid">
-    <ng-container *ngFor="let feature of features; let i = index">
-      <app-feature-view-card [title]="feature.title.value"
-                             [link]="feature.link"
-                             [infoLink]="feature.infoLink"
-                             [icon]="feature.icon"
-                             [featureState]="feature.isPublic">
-      </app-feature-view-card>
+    <ng-container *ngFor="let category of categories; let i = index">
+      <ng-container *ngFor="let feature of category.features; let j = index">
+        <app-feature-view-card [title]="feature.title.value"
+                               [link]="feature.link"
+                               [infoLink]="feature.infoLink"
+                               [icon]="feature.icon"
+                               [featureState]="feature.isPublic">
+        </app-feature-view-card>
+      </ng-container>
     </ng-container>
-    <app-feature-view-card [title]="featureSignIn.title.value"
-                           [link]="featureSignIn.link"
-                           [infoLink]="featureSignIn.infoLink"
-                           [icon]="featureSignIn.icon"
-                           [featureState]="featureSignIn.isPublic">
-    </app-feature-view-card>
+    <!--    <app-feature-view-card [title]="featureSignIn.title.value"-->
+    <!--                           [link]="featureSignIn.link"-->
+    <!--                           [infoLink]="featureSignIn.infoLink"-->
+    <!--                           [icon]="featureSignIn.icon"-->
+    <!--                           [featureState]="featureSignIn.isPublic">-->
+    <!--    </app-feature-view-card>-->
   </div>
 
 </div>
