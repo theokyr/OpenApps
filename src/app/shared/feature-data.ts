@@ -10,7 +10,7 @@ import {faDesktop} from "@fortawesome/free-solid-svg-icons/faDesktop";
 import {faSignInAlt} from "@fortawesome/free-solid-svg-icons/faSignInAlt";
 import {ApiFeatureStateModel} from "./api-feature-state.model";
 
-export class Features {
+export class FeatureData {
   public static readonly featureSignIn = new ApiFeature(
     new TranslatedText("Σύνδεση", "Sign in"),
     "/signin/",

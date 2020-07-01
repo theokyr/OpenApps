@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {FeatureData} from "../../../../shared/feature-data";
 import {ApiFeature} from "../../../../shared/api-feature.model";
-import {Features} from "../../../../shared/features";
 
 @Component({
   selector: 'app-view-list',
@@ -17,9 +17,9 @@ export class FeaturesViewListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.features = Features.features;
-    this.featureSignIn = Features.featureSignIn;
-    this.featureSignOut = Features.featureSignOut;
+    this.features = FeatureData.features;
+    this.featureSignIn = FeatureData.featureSignIn;
+    this.featureSignOut = FeatureData.featureSignOut;
   }
 
 }

@@ -1,10 +1,13 @@
-<div class="full-width header" fxLayout="row" fxLayoutAlign="space-between">
+<div class="full-width header"
+     fxLayout="row"
+     fxLayoutAlign="space-between"
+     fxLayoutAlign.lt-lg="center center">
   <button class="app-button link-no-style" mat-button routerLink="/" fxLayout="row" fxLayoutAlign="center center">
     <div class="app-title">
       <fa-icon [icon]="faAppIcon"></fa-icon>&nbsp;OpenApps
     </div>
   </button>
-  <div fxFlex="grow" class="nav-bar" fxLayoutAlign="space-between center">
+  <div fxHide.lt-lg="true" fxFlex="grow" class="nav-bar" fxLayoutAlign="space-between center">
     <div fxLayout="row" fxLayout="start center">
       <a routerLink="/announcements" routerLinkActive="btn-active" mat-button>
         <fa-icon [icon]="faAnnouncements"></fa-icon>&nbsp;Ανακοινώσεις
@@ -19,5 +22,9 @@
         <fa-icon [icon]="faSignIn"></fa-icon>&nbsp;Είσοδος
       </a>
     </div>
+  </div>
+
+  <div fxShow.lt-lg="true">
+    &nbsp;
   </div>
 </div>

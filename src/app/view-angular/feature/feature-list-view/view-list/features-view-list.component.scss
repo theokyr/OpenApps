@@ -6,3 +6,9 @@ $breakpoint-tablet: 768px;
     height: 80vh;
   }
 }
+
+@media (max-height: $breakpoint-tablet) {
+  .feature-list {
+    width: 100vw;
+  }
+}

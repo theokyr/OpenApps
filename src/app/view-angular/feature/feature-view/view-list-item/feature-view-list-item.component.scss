@@ -44,12 +44,19 @@ a:hover {
 }
 
 .app-card-title {
-  //font-size: 1rem;
-  //line-height: 1rem;
+  font-size: 1rem;
+  line-height: 1.2rem;
   font-weight: 500;
-  text-align: center;
+  text-align: left;
 }
 
 .info-link {
   border-radius: 0;
+}
+
+$breakpoint-tablet: 768px;
+@media (max-height: $breakpoint-tablet) {
+  .list-item-row {
+    width: 90vw;
+  }
 }
