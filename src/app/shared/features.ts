@@ -39,13 +39,13 @@ export class Features {
       faSearch,
       ApiFeatureStateModel.Public),
     new ApiFeature(
-      new TranslatedText("Λογισμικό από Kivuto (πρώην MS-Imagine)", "Kivuto Software (previously MS-Imagine)"),
+      new TranslatedText("Λογισμικό από Kivuto", "Software from Kivuto"),
       "https://e5.onthehub.com/WebStore/ProductsByMajorVersionList.aspx?ws=be0fe910-869b-e011-969d-0030487d8897",
       "https://imselab-atei-thessaloniki.weebly.com/ms-imagine-gr.html",
       faWindowMaximize,
       ApiFeatureStateModel.Public),
     new ApiFeature(
-      new TranslatedText("Λογισμικό από Microsoft (και άλλες υπηρεσίες όπως VMs)", "Microsoft Software (and other services such as VMs)"),
+      new TranslatedText("Λογισμικό & υπηρεσίες από Microsoft", "Software and services from Microsoft"),
       "https://imselab-atei-thessaloniki.weebly.com/ms-azure-gr.html",
       "",
       faWindows,

@@ -1,13 +1,12 @@
 .app-card {
   width: 16rem;
-  height: 10rem;
+  height: 8rem;
   border-radius: 0;
 }
 
 .feature-status {
   width: 16rem;
-  height: 1rem;
-  border-radius: .5rem .5rem 0 0;
+  border-radius: .25rem .25rem 0 0;
 }
 
 .feature-status-public {
@@ -31,8 +30,8 @@ a:hover {
 }
 
 .app-card-title {
-  font-size: 1.25rem;
-  line-height: 1.25rem;
+  font-size: 1rem;
+  line-height: 1rem;
   font-weight: 500;
   text-align: center;
 }
@@ -41,5 +40,5 @@ a:hover {
 .mat-flat-button,
 .mat-icon-button,
 .mat-stroked-button {
-  border-radius: 0 0 .5rem .5rem;
+  border-radius: 0 0 .3rem .3rem;
 }

@@ -1,6 +1,6 @@
 {
   "name": "openapps",
-  "version": "0.0.4",
+  "version": "0.0.5-dev",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
