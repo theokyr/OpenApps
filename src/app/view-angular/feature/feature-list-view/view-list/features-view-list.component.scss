@@ -1,25 +1,8 @@
-$breakpoint-tablet: 768px;
-$breakpoint-phone: 960px;
-@media (min-height: $breakpoint-tablet) {
 
-  .features-view-list {
-    height: 80vh;
-  }
-}
-
-@media (max-width: $breakpoint-phone) {
-  .feature-list {
-    width: 100vw;
-  }
-}
 
 .category-title {
   font-size: 1.5rem;
   line-height: 1.5rem;
   font-weight: 300;
-
 }
 
-.category-list {
-  height: 30vh;
-}

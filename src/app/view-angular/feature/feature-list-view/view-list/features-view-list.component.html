@@ -1,37 +1,41 @@
-<div class="full-width features-view-list"
-     fxLayout="row"
-     fxLayout.lt-lg="column"
-     fxLayoutAlign="center center"
-     fxLayoutGap="1rem">
-  <ng-container *ngFor="let category of categories; let i = index">
-    <div class="category-list"
-         fxLayout="column"
-         fxLayoutAlign="start start" fxLayoutGap="1rem">
-      <div class="category-title full-width" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap=".5rem">
-        <fa-icon [icon]="category.icon"></fa-icon>
-        <span>{{category.title.value}}</span>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <div fxFlex
+       fxLayout="row"
+       fxLayout.lt-lg="column"
+       fxLayoutAlign="center start"
+       fxLayoutGap="1rem">
+    <ng-container *ngFor="let category of categories; let i = index">
+      <div class="category-list"
+           fxLayout="column"
+           fxLayoutAlign="start start"
+           fxLayoutGap="1rem">
+        <div class="category-title" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap=".5rem">
+          <fa-icon [icon]="category.icon"></fa-icon>
+          <span>{{category.title.value}}</span>
+        </div>
+        <div class="feature-list"
+             fxLayout="column wrap"
+             fxLayout.lt-lg="column"
+             fxLayoutAlign="center center"
+             fxLayoutGap="1rem grid">
+          <ng-container *ngFor="let feature of category.features; let j = index">
+            <app-feature-view-list-item [title]="feature.title.value"
+                                        [link]="feature.link"
+                                        [infoLink]="feature.infoLink"
+                                        [icon]="feature.icon"
+                                        [featureState]="feature.isPublic">
+            </app-feature-view-list-item>
+          </ng-container>
+        </div>
       </div>
-      <div class="feature-list"
-           fxLayout="column wrap"
-           fxLayout.lt-lg="column"
-           fxLayoutAlign="center center"
-           fxLayoutGap="1rem grid">
-        <ng-container *ngFor="let feature of category.features; let j = index">
-          <app-feature-view-list-item [title]="feature.title.value"
-                                      [link]="feature.link"
-                                      [infoLink]="feature.infoLink"
-                                      [icon]="feature.icon"
-                                      [featureState]="feature.isPublic">
-          </app-feature-view-list-item>
-        </ng-container>
-      </div>
-    </div>
-  </ng-container>
-  <!--    <app-feature-view-list-item [title]="featureSignIn.title.value"-->
-  <!--                                [link]="featureSignIn.link"-->
-  <!--                                [infoLink]="featureSignIn.infoLink"-->
-  <!--                                [icon]="featureSignIn.icon"-->
-  <!--                                [featureState]="featureSignIn.isPublic">-->
-  <!--    </app-feature-view-list-item>-->
-
+    </ng-container>
+    <!--    <app-feature-view-list-item [title]="featureSignIn.title.value"-->
+    <!--                                [link]="featureSignIn.link"-->
+    <!--                                [infoLink]="featureSignIn.infoLink"-->
+    <!--                                [icon]="featureSignIn.icon"-->
+    <!--                                [featureState]="featureSignIn.isPublic">-->
+    <!--    </app-feature-view-list-item>-->
+  </div>
 </div>
+
+

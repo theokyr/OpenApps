@@ -1,24 +1,19 @@
-.footer {
+@import 'responsive.mixin.scss';
+
+footer {
   background-color: #262626;
   padding: 1rem;
-  //bottom:0;
-  //left:0;
-  //position: fixed;
   width: 100%;
-  //overflow: hidden;
-  //z-index: 1;
-  height: 50px;
+  height: 120px;
 }
 
 .disclaimer {
   opacity: 0.6;
 }
 
-$breakpoint-tablet: 768px;
-@media (max-width: $breakpoint-tablet) {
-  .footer {
+footer {
+  @include screen($breakpoint-tablet-portrait) {
     font-size: 80%;
-    height: 100%;
   }
 }
 

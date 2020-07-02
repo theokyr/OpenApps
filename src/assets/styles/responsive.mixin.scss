@@ -1,0 +1,21 @@
+$breakpoint-phone: 'phone';
+$breakpoint-tablet-portrait: 'tablet-portrait';
+$breakpoint-tablet-landscape: 'tablet-landscape';
+$breakpoint-desktop: 'tablet-desktop';
+$breakpoint-big-desktop: 'big-desktop';
+
+$breakpoints: (
+  $breakpoint-phone: 599px,
+  $breakpoint-tablet-portrait: 600px,
+  $breakpoint-tablet-landscape: 960px,
+  $breakpoint-desktop: 1280px,
+  $breakpoint-big-desktop: 1920px
+) !default;
+
+@mixin screen($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}

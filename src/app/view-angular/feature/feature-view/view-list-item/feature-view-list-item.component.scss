@@ -1,3 +1,5 @@
+@import 'responsive.mixin.scss';
+
 .app-card {
   height: 4rem;
   border-radius: 0 .25rem .25rem 0;
@@ -7,9 +9,6 @@
   border-radius: 0;
 }
 
-.list-item-row {
-  width: 20rem;
-}
 
 .feature-status {
   height: 4rem;
@@ -54,9 +53,11 @@ a:hover {
   border-radius: 0;
 }
 
-$breakpoint-tablet: 768px;
-@media (max-height: $breakpoint-tablet) {
-  .list-item-row {
+.list-item-row {
+  width: 24rem;
+
+
+  @include screen($breakpoint-desktop) {
     width: 90vw;
   }
 }

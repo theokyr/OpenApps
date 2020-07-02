@@ -1,8 +1,11 @@
-.app-content {
-  padding: 80px 1rem;
-}
+@import 'responsive.mixin.scss';
+
+$height-desktop-large: 825px;
+//$height-variation: 71px;
+//$height-header: 64px;
+//$height-footer: 120px;
 
 .container {
-  width: 100vw;
-  height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
 }

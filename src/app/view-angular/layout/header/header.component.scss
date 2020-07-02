@@ -1,9 +1,8 @@
-.header {
+header {
   background-color: #546e7a;
   position: fixed;
   left: 0;
   top: 0;
-  min-height: 64px;
   height: 64px;
   width: 100%;
   overflow: hidden;
@@ -28,10 +27,3 @@
   border-radius: 0;
 }
 
-
-$breakpoint-tablet: 768px;
-@media (max-width: $breakpoint-tablet) {
-  //.header {
-  //  position:absolute;
-  //}
-}
