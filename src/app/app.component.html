@@ -1,7 +1,20 @@
-<div class="container" fxLayout="column">
-  <app-header></app-header>
-  <main fxFlexOrder="2" fxLayout="column" fxLayoutAlign="center center">
+<!--<div class="container" fxLayout="column" >-->
+<!--  <app-header></app-header>-->
+<!--  <main fxFlexOrder="2" fxLayout="column" fxLayoutAlign="center center">-->
+<!--    <router-outlet></router-outlet>-->
+<!--  </main>-->
+<!--  <app-footer></app-footer>-->
+<!--</div>-->
+<div fxFlexFill fxLayout="column">
+  <div fxFlex="none" style="border:2px solid black;">
+    <app-header></app-header>
+  </div>
+
+  <div class="app-view" fxFlex>
     <router-outlet></router-outlet>
-  </main>
-  <app-footer></app-footer>
+  </div>
+
+  <div fxFlex="none">
+    <app-footer></app-footer>
+  </div>
 </div>

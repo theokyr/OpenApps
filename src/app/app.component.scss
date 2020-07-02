@@ -1,11 +1,5 @@
 @import 'responsive.mixin.scss';
 
-$height-desktop-large: 825px;
-//$height-variation: 71px;
-//$height-header: 64px;
-//$height-footer: 120px;
-
-.container {
-  display: flex;
-  flex-flow: row wrap;
-}
+//:host {
+//  display:flex;
+//}

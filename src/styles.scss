@@ -75,27 +75,28 @@ a.link-no-style:active {
 @import 'responsive.mixin.scss';
 
 $height-desktop-large: 753px;
-main {
-  margin-top: 64px;
+.app-view {
+  margin-top: 64px + 16px;
   padding: 1rem;
-  min-height: $height-desktop-large;
-  //$height-header-half: $height-header / 2;
-  //$height-footer-half: $height-footer / 2;
-  //min-height: $height-desktop-large -  $height-header-half -  $height-footer-half -$height-variation;
-
-  @include screen($breakpoint-desktop) {
-    height: 100%;
-  }
+  //  padding: 1rem;
+  //  min-height: $height-desktop-large;
+  //  //$height-header-half: $height-header / 2;
+  //  //$height-footer-half: $height-footer / 2;
+  //  //min-height: $height-desktop-large -  $height-header-half -  $height-footer-half -$height-variation;
+  //
+  //  @include screen($breakpoint-desktop) {
+  //    height: 100%;
+  //  }
 }
 
-app-header {
-  order: 1;
-  //height: 100px;
-  flex: 0 1 100%;
-}
-
-app-footer {
-  order: 3;
-  //height: 100px;
-  flex: 0 1 100%;
-}
+//app-header {
+//  order: 1;
+//  //height: 100px;
+//  flex: 0 1 100%;
+//}
+//
+//app-footer {
+//  order: 3;
+//  //height: 100px;
+//  flex: 0 1 100%;
+//}
