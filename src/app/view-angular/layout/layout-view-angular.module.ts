@@ -11,10 +11,11 @@ import {AppRoutingModule} from "../../shared-angular/routing/app-routing.module"
 import {MatButtonModule} from "@angular/material/button";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {MatDividerModule} from "@angular/material/divider";
+import {NotFoundComponent} from './not-found/not-found.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [HeaderComponent, FooterComponent, NotFoundComponent],
   exports: [
     HeaderComponent,
     FooterComponent

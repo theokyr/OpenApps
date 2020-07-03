@@ -1,24 +1,11 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat-core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
 $openapps-primary: mat-palette($mat-indigo);
 $openapps-accent: mat-palette($mat-blue, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
 $openapps-warn: mat-palette($mat-red);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
 $openapps-theme: mat-dark-theme((
   color: (
     primary: $openapps-primary,
@@ -27,12 +14,9 @@ $openapps-theme: mat-dark-theme((
   )
 ));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include angular-material-theme($openapps-theme);
+@import 'responsive.mixin.scss';
 
-/* You can add global styles to this file, and also import other style files */
 
 html, body {
   height: 100%;
@@ -43,6 +27,35 @@ html, body {
 
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+$header-height: 64px;
+$header-background: #546e7a;
+$footer-height: 120px;
+$footer-background: #262626;
+$spacer-height: 16px;
+
+.app-view {
+  margin-top: $header-height + $spacer-height;
+  padding: 1rem;
+}
+
+header {
+  background-color: $header-background;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: $header-height;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+footer {
+  background-color: $footer-background;
+  padding: 1rem;
+  width: 100%;
+  height: $footer-height;
 }
 
 .full-width {
@@ -71,32 +84,3 @@ a.link-no-style:active {
   color: #fff;
   text-decoration: none !important;
 }
-
-@import 'responsive.mixin.scss';
-
-$height-desktop-large: 753px;
-.app-view {
-  margin-top: 64px + 16px;
-  padding: 1rem;
-  //  padding: 1rem;
-  //  min-height: $height-desktop-large;
-  //  //$height-header-half: $height-header / 2;
-  //  //$height-footer-half: $height-footer / 2;
-  //  //min-height: $height-desktop-large -  $height-header-half -  $height-footer-half -$height-variation;
-  //
-  //  @include screen($breakpoint-desktop) {
-  //    height: 100%;
-  //  }
-}
-
-//app-header {
-//  order: 1;
-//  //height: 100px;
-//  flex: 0 1 100%;
-//}
-//
-//app-footer {
-//  order: 3;
-//  //height: 100px;
-//  flex: 0 1 100%;
-//}

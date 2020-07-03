@@ -14,6 +14,9 @@ import {faBullhorn} from "@fortawesome/free-solid-svg-icons/faBullhorn";
 import {faSave} from "@fortawesome/free-solid-svg-icons/faSave";
 import {faServer} from "@fortawesome/free-solid-svg-icons/faServer";
 import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
+import {faGlobe} from "@fortawesome/free-solid-svg-icons/faGlobe";
+import {faDatabase} from "@fortawesome/free-solid-svg-icons";
+import {faPlug} from "@fortawesome/free-solid-svg-icons/faPlug";
 
 export class FeatureData {
   public static readonly featureSignIn = new ApiFeature(
@@ -46,7 +49,31 @@ export class FeatureData {
           "/users/",
           "",
           faSearch,
-          ApiFeatureStateModel.Public)
+          ApiFeatureStateModel.Public),
+        new ApiFeature(
+          new TranslatedText("Υπηρεσία SSH", "SSH Service"),
+          "/ssh/",
+          "",
+          faServer,
+          ApiFeatureStateModel.Private),
+        new ApiFeature(
+          new TranslatedText("Προσωπική Ιστοσελίδα", "Personal Website"),
+          "/website/",
+          "",
+          faGlobe,
+          ApiFeatureStateModel.Private),
+        new ApiFeature(
+          new TranslatedText("Προσωπική Βάση", "Personal Database"),
+          "/database/",
+          "",
+          faDatabase,
+          ApiFeatureStateModel.Private),
+        new ApiFeature(
+          new TranslatedText("Υπηρεσία VPN", "VPN Service"),
+          "/vpn/",
+          "",
+          faPlug,
+          ApiFeatureStateModel.Private)
       ]
     ),
     new ApiFeatureCategoryModel(
