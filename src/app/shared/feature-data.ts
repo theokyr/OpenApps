@@ -21,14 +21,14 @@ import {faPlug} from "@fortawesome/free-solid-svg-icons/faPlug";
 export class FeatureData {
   public static readonly featureSignIn = new ApiFeature(
     new TranslatedText("Σύνδεση", "Sign in"),
-    "/signin/",
+    "/auth/login",
     "",
     faSignInAlt,
     ApiFeatureStateModel.SignedOut);
 
   public static readonly featureSignOut = new ApiFeature(
     new TranslatedText("Απούνδεση", "Sign out"),
-    "/signout/",
+    "/auth/logout",
     "",
     faSignInAlt,
     ApiFeatureStateModel.SignedIn);

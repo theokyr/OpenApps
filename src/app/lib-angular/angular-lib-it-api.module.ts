@@ -5,6 +5,7 @@ import {BaseItApiService} from "./api/base-it-api.service";
 import {AnnouncementsLibModule} from "./announcements/announcements-lib.module";
 import {CategoriesLibModule} from "./categories/categories-lib.module";
 import {UsersLibModule} from "./users/users-lib.module";
+import {AuthLibModule} from "./auth/auth-lib.module";
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import {UsersLibModule} from "./users/users-lib.module";
   imports: [
     CommonModule,
     HttpClientModule,
+    AuthLibModule,
     AnnouncementsLibModule,
     CategoriesLibModule,
     UsersLibModule

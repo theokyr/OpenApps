@@ -5,12 +5,14 @@ import {AuthCallbackComponent} from "../../view-angular/auth/auth-callback/auth-
 import {UsersListComponent} from "../../view-angular/users/users-list/users-list.component";
 import {FeaturesViewListComponent} from "../../view-angular/feature/feature-list-view/view-list/features-view-list.component";
 import {NotFoundComponent} from "../../view-angular/layout/not-found/not-found.component";
+import {AuthLoginComponent} from "../../view-angular/auth/auth-login/auth-login.component";
 
 
 const routes: Routes = [
   {path: '', component: FeaturesViewListComponent},
   {path: 'announcements', component: BulletinBoardViewComponent},
   {path: 'users', component: UsersListComponent},
+  {path: 'auth/login', component: AuthLoginComponent},
   {path: 'auth/callback', component: AuthCallbackComponent},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}

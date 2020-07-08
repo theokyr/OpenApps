@@ -22,7 +22,7 @@ export class CategoriesApiService extends BaseItApiService {
       return of(CategoriesApiService.cachedCategories);
     }
 
-    return super.get(CategoryEndpoints.ENDPOINT_GET_CATEGORIES_PUBLIC, [])
+    return super.get(CategoryEndpoints.ENDPOINT_GET_CATEGORIES_PUBLIC)
       .pipe(
         map((data) => {
           let result = [];

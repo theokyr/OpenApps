@@ -17,7 +17,7 @@ export class UsersApiService extends BaseItApiService {
 
   public getUsers(): Observable<UserModel[]> {
     return super
-      .get(UserEndpoints.ENDPOINT_GET_USERS_PUBLIC, [])
+      .get(UserEndpoints.ENDPOINT_GET_USERS_PUBLIC)
       .pipe(
         map((data) => {
           let result = [];

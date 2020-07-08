@@ -17,7 +17,7 @@ export class AnnouncementsApiService extends BaseItApiService {
 
   public getAnnouncementsPublic(): Observable<AnnouncementModel[]> {
     return super
-      .get(AnnouncementEndpoints.ENDPOINT_GET_ANNOUNCEMENTS_PUBLIC, [])
+      .get(AnnouncementEndpoints.ENDPOINT_GET_ANNOUNCEMENTS_PUBLIC)
       .pipe(
         map((data) => {
           let result = [];
@@ -34,10 +34,10 @@ export class AnnouncementsApiService extends BaseItApiService {
   }
 
   public getAnnouncementsPublicPaginated(): Observable<AnnouncementModel[]> {
-    return super.get(AnnouncementEndpoints.ENDPOINT_GET_ANNOUNCEMENTS_PUBLIC_PAGINATED, [])
+    return super.get(AnnouncementEndpoints.ENDPOINT_GET_ANNOUNCEMENTS_PUBLIC_PAGINATED)
       .pipe(
         map((data) => {
-          let result : AnnouncementModel[] = [];
+          let result: AnnouncementModel[] = [];
           if (Array.isArray(data)) {
             data.forEach(item => {
               result.push(new AnnouncementModel(item));
