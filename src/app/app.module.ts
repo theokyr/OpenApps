@@ -33,5 +33,6 @@ export class AppModule {
 
   constructor() {
     BaseItApiService.setBaseUrl(environment.base_url);
+    BaseItApiService.setBaseLoginUrl(environment.base_url_login)
   }
 }

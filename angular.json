@@ -71,11 +71,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "openapps:build"
+            "browserTarget": "openapps:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "openapps:build:production"
+              "browserTarget": "openapps:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             }
           }
         },
@@ -129,7 +131,13 @@
         },
         "deploy": {
           "builder": "@angular/fire:deploy",
-          "options": {}
+          "options": {},
+          "configurations": {
+            "production": {
+              "browserTarget": "openapps:build:production",
+              "proxyConfig": "src/proxy.conf.json"
+            }
+          }
         }
       }
     }

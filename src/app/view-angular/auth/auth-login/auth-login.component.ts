@@ -12,7 +12,7 @@ export class AuthLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.refreshToken();
+    this.authService.redirectLogin();
   }
 
 }

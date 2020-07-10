@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AuthApiService} from "./auth-api.service";
+import {FirebaseAuthApiService} from "./firebase-auth-api.service";
 
 
 @NgModule({
@@ -9,7 +10,8 @@ import {AuthApiService} from "./auth-api.service";
     CommonModule
   ],
   providers: [
-    AuthApiService
+    AuthApiService,
+    FirebaseAuthApiService
   ]
 })
 export class AuthLibModule {

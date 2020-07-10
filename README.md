@@ -32,7 +32,7 @@ Bleeding edge development happens on the [dev](https://github.com/theokyr/OpenAp
 2. Update `src/environments/environment.ts` with the Base URL of the API you are using.
 
 
-## Usage
+## Usage - Local Server
 ### Development
 1. Serve a dev build using:
     ```shell script
@@ -49,6 +49,21 @@ Bleeding edge development happens on the [dev](https://github.com/theokyr/OpenAp
 3. Build the production build:
     ```shell script
     ng build --prod
+    ```
+## Deployment
+To enable authentication services, OpenApps uses Firebase by default, but you can write your own implementation as long as it pings `<openapps-base-url>/auth/finalize`, which runs server-side code on the https://login.iee.ihu.gr API for exchanging access and refresh tokens.
+
+### Firebase Deployment
+If you're using Firebase, it's pretty easy to deploy OpenApps.
+1. Create and initialize a Firebase Project in your cloned openapps repository. Your Project must have Hosting and Functions as selected options after `firebase init`.
+2. Configure the Client ID & Secret:
+    ```shell script
+    firebase functions:config:set auth.client_id="YOUR_CLIENT_ID"
+    firebase functions:config:set auth.client_secret="YOUR_CLIENT_SECRET"
+    ```
+3. Build and deploy to Firebase:
+    ```shell script
+    ng deploy
     ```
 
 ## License

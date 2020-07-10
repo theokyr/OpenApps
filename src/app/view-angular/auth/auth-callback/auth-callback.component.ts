@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {AuthApiService} from "../../../lib-angular/auth/auth-api.service";
+import {FirebaseAuthApiService} from "../../../lib-angular/auth/firebase-auth-api.service";
 
 @Component({
   selector: 'app-auth-callback',
@@ -16,7 +16,7 @@ export class AuthCallbackComponent implements OnInit {
   error_reason: string;
   error_description: string;
 
-  constructor(private route: ActivatedRoute, public authService: AuthApiService) {
+  constructor(private route: ActivatedRoute, public authService: FirebaseAuthApiService) {
   }
 
   ngOnInit(): void {
@@ -30,15 +30,17 @@ export class AuthCallbackComponent implements OnInit {
     })
     this.route.queryParamMap.subscribe(item => {
       console.log()
-      this.refresh_token = item.get("code");
-      this.finalizeAuthentication(this.refresh_token);
+      let code = item.get("code");
+      if (code) {
+        this.finalizeAuthentication(code);
+      }
     })
   }
 
-  finalizeAuthentication(refreshToken: string) {
-    console.log(`Finalizing auth with refresh token ${refreshToken}`)
+  finalizeAuthentication(code: string) {
+    console.log(`Finalizing auth`)
     this.authService
-      .accessToken(refreshToken)
+      .callbackFunction(code)
       .subscribe(res => {
         console.log(res);
       })

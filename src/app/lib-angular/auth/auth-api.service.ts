@@ -17,23 +17,46 @@ export class AuthApiService extends BaseItApiService {
     super(http);
   }
 
-  public refreshToken() {
-    const queryParamClientId = `${AuthEndpoints.ENDPOINT_API_AUTH_PARAM_CLIENT_ID}=${environment.client_id}`
-    const queryParamResponseType = `${AuthEndpoints.ENDPOINT_API_AUTH_PARAM_RESPONSE_TYPE}=${environment.response_type}`
-    const queryParamScope = `${AuthEndpoints.ENDPOINT_API_AUTH_PARAM_SCOPE}=${environment.scope}`
-    const queryRedirectUrl = `${AuthEndpoints.ENDPOINT_API_AUTH_PARAM_REDIRECT_URI}=${environment.redirect_uri}`
+  public redirectLogin() {
+    const queryParamClientId = `${AuthEndpoints.PARAM_CLIENT_ID}=${environment.client_id}`
+    const queryParamResponseType = `${AuthEndpoints.PARAM_RESPONSE_TYPE}=${environment.response_type}`
+    const queryParamScope = `${AuthEndpoints.PARAM_SCOPE}=${environment.scope}`
+    const queryRedirectUrl = `${AuthEndpoints.PARAM_REDIRECT_URI}=${environment.redirect_uri}`
+    const queryGrantType = `grant_type=refresh_token`
 
-    window.location.href = `${AuthEndpoints.ENDPOINT_API_AUTH}?${queryParamClientId}&${queryParamResponseType}&${queryParamScope}&${queryRedirectUrl}`
+    window.location.href = `${AuthEndpoints.LOGIN_URL_REDIRECT_AUTHENTICATION}?${queryParamClientId}&${queryParamResponseType}&${queryParamScope}&${queryRedirectUrl}&${queryGrantType}`
   }
 
-  public accessToken(refreshToken: string) {
+  public accessToken() {
     const formData = new Map<string, string>();
-    formData.set(AuthEndpoints.ENDPOINT_API_AUTH_PARAM_CLIENT_SECRET, environment.client_secret);
-    formData.set(AuthEndpoints.ENDPOINT_API_AUTH_PARAM_GRANT_TYPE, environment.grant_type);
-    formData.set(AuthEndpoints.ENDPOINT_API_AUTH_PARAM_CODE, refreshToken);
+    formData.set(AuthEndpoints.PARAM_CLIENT_ID, environment.client_id);
+    formData.set(AuthEndpoints.PARAM_CLIENT_SECRET, environment.client_secret);
+    formData.set(AuthEndpoints.PARAM_GRANT_TYPE, environment.grant_type_access_token);
+    formData.set(AuthEndpoints.PARAM_SCOPE, environment.scope);
 
     return super
-      .post(AuthEndpoints.ENDPOINT_API_TOKEN, AuthApiService.POST_TOKEN_HEADERS, formData)
+      .postLogin(AuthEndpoints.LOGIN_ENDPOINT_API_TOKEN, AuthApiService.POST_TOKEN_HEADERS, formData)
+      .pipe(
+        map((data) => {
+          console.log(data);
+          return new AccessTokenModel(data);
+        }), catchError(error => {
+          return throwError(`[angular-it-api] API Error: ${error}`);
+        })
+      );
+  }
+
+
+  public refreshToken(refreshToken: string) {
+    const formData = new Map<string, string>();
+    formData.set(AuthEndpoints.PARAM_CLIENT_ID, environment.client_id);
+    formData.set(AuthEndpoints.PARAM_CLIENT_SECRET, environment.client_secret);
+    formData.set(AuthEndpoints.PARAM_GRANT_TYPE, environment.grant_type_refresh_token);
+    formData.set(AuthEndpoints.PARAM_SCOPE, environment.scope);
+    formData.set(AuthEndpoints.PARAM_CODE, refreshToken);
+
+    return super
+      .postLogin(AuthEndpoints.LOGIN_ENDPOINT_API_TOKEN, AuthApiService.POST_TOKEN_HEADERS, formData)
       .pipe(
         map((data) => {
           console.log(data);
