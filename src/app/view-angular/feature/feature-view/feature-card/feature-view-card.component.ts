@@ -6,6 +6,8 @@ import {faInfoCircle} from "@fortawesome/free-solid-svg-icons/faInfoCircle";
 import {ApiFeatureStateModel} from "../../../../shared/api-feature-state.model";
 import {faUserAlt} from "@fortawesome/free-solid-svg-icons/faUserAlt";
 import {faUserAltSlash} from "@fortawesome/free-solid-svg-icons/faUserAltSlash";
+import {AuthApiFactoryService} from "../../../../lib-angular/auth/auth-api-factory.service";
+import {faUnlock} from "@fortawesome/free-solid-svg-icons/faUnlock";
 
 @Component({
   selector: 'app-feature-view-card',
@@ -30,15 +32,21 @@ export class FeatureViewCardComponent implements OnInit {
   featureState: ApiFeatureStateModel;
 
   isRouterLink: boolean;
+  isAuthenticated: boolean;
 
   faPublic = faGlobe;
   faPrivate = faLock;
+  faPrivateAuthenticated = faUnlock;
   faUserSignedOut = faUserAltSlash;
   faUserSignedIn = faUserAlt;
   faOpen = faArrowCircleRight;
   faInfo = faInfoCircle;
 
-  constructor() {
+  constructor(public authFactory: AuthApiFactoryService) {
+    this.authFactory.service.isAuthenticated().subscribe(value => {
+      console.log(`[FeatureViewCardComponent] New value! ${value}`)
+      this.isAuthenticated = value;
+    });
   }
 
   ngOnInit(): void {

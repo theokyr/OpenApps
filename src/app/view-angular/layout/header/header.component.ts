@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private authFactory: AuthApiFactoryService) {
     this.authFactory.service.isAuthenticated().subscribe(value => {
-      console.log(`header New value! ${value}`)
+      console.log(`[HeaderComponent] New value! ${value}`)
       this.isAuthenticated = value;
     });
   }

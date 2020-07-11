@@ -10,12 +10,22 @@
       </mat-card>
     </ng-container>
     <ng-container *ngIf="featureState == API_FEATURE_STATE_PRIVATE">
-      <mat-card class="feature-status feature-status-private"
-                matTooltip="Ιδιωτική εφαρμογή"
-                fxLayout="row"
-                fxLayoutAlign="center center">
-        <fa-icon [icon]="faPrivate"></fa-icon>
-      </mat-card>
+      <ng-container *ngIf="isAuthenticated">
+        <mat-card class="feature-status feature-status-private-authenticated"
+                  matTooltip="Έχετε πρόσβαση στην εφαρμογή"
+                  fxLayout="row"
+                  fxLayoutAlign="center center">
+          <fa-icon [icon]="faPrivateAuthenticated"></fa-icon>
+        </mat-card>
+      </ng-container>
+      <ng-container *ngIf="!isAuthenticated">
+        <mat-card class="feature-status feature-status-private"
+                  matTooltip="Ιδιωτική εφαρμογή"
+                  fxLayout="row"
+                  fxLayoutAlign="center center">
+          <fa-icon [icon]="faPrivate"></fa-icon>
+        </mat-card>
+      </ng-container>
     </ng-container>
     <ng-container *ngIf="featureState == API_FEATURE_STATE_SIGNED_OUT">
       <mat-card class="feature-status feature-status-signed-out"
@@ -58,7 +68,6 @@
       <div class="app-card-title">{{title}}</div>
     </mat-card>
   </a>
-
 
   <!--region Info Link-->
   <a *ngIf="infoLink"

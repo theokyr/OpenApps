@@ -6,14 +6,14 @@ export class ApiFeature {
   private readonly _link: string;
   private readonly _infoLink: string;
   private readonly _icon: Object;
-  private readonly _isPublic: ApiFeatureStateModel;
+  private readonly _featureState: ApiFeatureStateModel;
 
   constructor(title: TranslatedText, link: string, infoLink: string, icon: Object, publicFeature: ApiFeatureStateModel) {
     this._title = title;
     this._link = link;
     this._infoLink = infoLink;
     this._icon = icon;
-    this._isPublic = publicFeature;
+    this._featureState = publicFeature;
   }
 
   get title(): TranslatedText {
@@ -32,7 +32,7 @@ export class ApiFeature {
     return this._icon;
   }
 
-  get isPublic(): ApiFeatureStateModel {
-    return this._isPublic;
+  get featureState(): ApiFeatureStateModel {
+    return this._featureState;
   }
 }

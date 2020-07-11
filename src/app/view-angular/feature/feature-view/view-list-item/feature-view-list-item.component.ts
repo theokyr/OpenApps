@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {faGlobe} from "@fortawesome/free-solid-svg-icons/faGlobe";
 import {faLock} from "@fortawesome/free-solid-svg-icons/faLock";
-import {faArrowCircleRight} from "@fortawesome/free-solid-svg-icons/faArrowCircleRight";
 import {faInfoCircle} from "@fortawesome/free-solid-svg-icons/faInfoCircle";
 import {ApiFeatureStateModel} from "../../../../shared/api-feature-state.model";
 import {faUserAlt} from "@fortawesome/free-solid-svg-icons/faUserAlt";
 import {faUserAltSlash} from "@fortawesome/free-solid-svg-icons/faUserAltSlash";
+import {faUnlock} from "@fortawesome/free-solid-svg-icons/faUnlock";
 
 @Component({
   selector: 'app-feature-view-list-item',
@@ -28,14 +28,17 @@ export class FeatureViewListItemComponent implements OnInit {
   infoLink;
   @Input()
   featureState: ApiFeatureStateModel;
+  @Input()
+  isAuthenticated: boolean;
 
   isRouterLink: boolean;
+  displayFeature: boolean;
 
   faPublic = faGlobe;
   faPrivate = faLock;
+  faPrivateAuthenticated = faUnlock;
   faUserSignedOut = faUserAltSlash;
   faUserSignedIn = faUserAlt;
-  faOpen = faArrowCircleRight;
   faInfo = faInfoCircle;
 
   constructor() {

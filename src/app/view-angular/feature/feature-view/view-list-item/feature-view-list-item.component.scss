@@ -23,11 +23,15 @@
 }
 
 .feature-status-public {
-  background-color: #505050;
+  background-color: #757575;
 }
 
 .feature-status-private {
-  background-color: #757575;
+  background-color: #505050;
+}
+
+.feature-status-private-authenticated {
+  background-color: #999999;
 }
 
 .feature-status-signed-out {

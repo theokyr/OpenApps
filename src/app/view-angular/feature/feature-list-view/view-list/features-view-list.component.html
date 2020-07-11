@@ -19,11 +19,13 @@
              fxLayoutAlign="center center"
              fxLayoutGap="1rem grid">
           <ng-container *ngFor="let feature of category.features; let j = index">
-            <app-feature-view-list-item [title]="feature.title.value"
+            <app-feature-view-list-item *ngIf="shouldShowFeature(feature.featureState)"
+                                        [title]="feature.title.value"
                                         [link]="feature.link"
                                         [infoLink]="feature.infoLink"
                                         [icon]="feature.icon"
-                                        [featureState]="feature.isPublic">
+                                        [featureState]="feature.featureState"
+                                        [isAuthenticated]="isAuthenticated">
             </app-feature-view-list-item>
           </ng-container>
         </div>
