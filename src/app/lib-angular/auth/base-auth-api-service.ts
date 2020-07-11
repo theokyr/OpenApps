@@ -30,7 +30,7 @@ export abstract class BaseAuthApiService extends BaseItApiService implements IAu
   abstract requestAccessToken(code: string): Observable<AccessTokenModel>;
 
   login(result: AccessTokenModel) {
-    console.debug("[base-auth] Signing in with token ", result)
+    console.debug("[base-auth] Signed in");
     // TODO: Don't
     localStorage.setItem(BaseAuthApiService.KEY_ACCESS_TOKEN, result.access_token);
     this.authenticationSubject.next(true);
