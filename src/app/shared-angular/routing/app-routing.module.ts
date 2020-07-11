@@ -6,6 +6,7 @@ import {UsersListComponent} from "../../view-angular/users/users-list/users-list
 import {FeaturesViewListComponent} from "../../view-angular/feature/feature-list-view/view-list/features-view-list.component";
 import {NotFoundComponent} from "../../view-angular/layout/not-found/not-found.component";
 import {AuthLoginComponent} from "../../view-angular/auth/auth-login/auth-login.component";
+import {AuthLogoutComponent} from "../../view-angular/auth/auth-logout/auth-logout.component";
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'users', component: UsersListComponent},
   {path: 'auth/login', component: AuthLoginComponent},
   {path: 'auth/callback', component: AuthCallbackComponent},
+  {path: 'auth/logout', component: AuthLogoutComponent},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}
 ];

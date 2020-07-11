@@ -17,9 +17,12 @@
       </a>
     </div>
 
-    <div>
-      <a routerLink="/auth/login" mat-button>
+    <div fxLayout="row" fxLayoutAlign="center end">
+      <a routerLink="/auth/login" mat-stroked-button *ngIf="!isAuthenticated">
         <fa-icon [icon]="faSignIn"></fa-icon>&nbsp;Είσοδος
+      </a>
+      <a routerLink="/auth/logout" mat-stroked-button *ngIf="isAuthenticated">
+        <fa-icon [icon]="faSignOut"></fa-icon>&nbsp;Αποσύνδεση
       </a>
     </div>
   </div>

@@ -1,13 +1,29 @@
-<div fxLayout="column" fxLayoutAlign="center center">
-  <div *ngIf="access_token">
-    Success! Access Token: {{access_token}}
-  </div>
+<div class="callback-container" fxLayout="column" fxLayoutAlign="center center">
+  <ng-container *ngIf="!isAuthFinished">
+    <h2>Επιβεβαίωση σύνδεσης...</h2>
+    <mat-spinner color="accent"></mat-spinner>
+  </ng-container>
 
-  <div *ngIf="!access_token && error">
-    Failure! Error: {{error}} {{error_description}} {{error_reason}}
-  </div>
-
-  <div *ngIf="!access_token && !error">
-    Failure! No reason given. <a mat-flat-button routerLink="/">Return to home.</a>
-  </div>
+  <ng-container *ngIf="isAuthFinished">
+    <ng-container *ngIf="isAuthSuccessful">
+      <h2>Επιτυχία! Μετάβαση στο OpenApps...</h2>
+    </ng-container>
+    <ng-container *ngIf="!isAuthSuccessful">
+      <mat-card class="error-card" fxLayout="column" fxLayoutAlign="stretch">
+        <mat-card-title>
+          <h2>
+            <fa-icon class="error-icon" [icon]="faError"></fa-icon>&nbsp;Σφάλμα αυθεντικοποίησης
+          </h2>
+        </mat-card-title>
+        <mat-card-content *ngIf="errorMessage">
+          <p>Οι υπηρεσίες του ΔΙΠΑΕ απάντησαν με το μήνυμα: {{errorMessage}}</p>
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+          <a mat-flat-button routerLink="/" color="primary">
+            <fa-icon [icon]="faBack"></fa-icon>&nbsp;Επιστροφή στην Αρχική
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
+  </ng-container>
 </div>
