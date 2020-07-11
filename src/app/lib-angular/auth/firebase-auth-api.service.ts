@@ -6,7 +6,7 @@ import {BaseItApiService} from "../api/base-it-api.service";
   providedIn: 'root'
 })
 export class FirebaseAuthApiService extends BaseItApiService {
-  URL_CALLBACK = "/api/callback";
+  URL_CALLBACK = "api/auth/callback";
 
   constructor(http: HttpClient) {
     super(http);
@@ -14,7 +14,6 @@ export class FirebaseAuthApiService extends BaseItApiService {
 
   callbackFunction(code: string) {
     const params = new HttpParams();
-    params.append("code", code)
-    return super.post(this.URL_CALLBACK, params, true)
+    return super.get(`${this.URL_CALLBACK}/${code}`, params, true)
   }
 }

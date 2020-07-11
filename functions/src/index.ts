@@ -8,6 +8,7 @@ const {error} = require("firebase-functions/lib/logger");
 admin.initializeApp();
 
 const ERROR_CODE_ROUTE_NOT_FOUND: number = 1000;
+const ERROR_CODE_ROUTE_INVALID_PARAMS: number = 1001;
 
 const app = express();
 info(`Init`)
@@ -26,24 +27,29 @@ app.use((req: any, res: any, next: any) => {
   next();
 });
 
-app.post('/callback', (req: any, res: any) => {
+app.get('/auth/callback/:code', (req: any, res: any) => {
   info(`/callback - Init`);
-  if (!req.query) {
-    error(`Invalid query`)
-    res.status(400);
-    res.send({
-      'error': "No code has been specified"
-    });
+  info(`/callback - Params:`, req.params);
+
+  if (!req.params.code) {
+    error("/callback ERROR 1001 - no code")
+    res.status(400).json({
+      error: 'Invalid parameters',
+      code: ERROR_CODE_ROUTE_INVALID_PARAMS
+    })
+    return;
   }
-  info(`/callback - Getting query code`);
-  const code = !!req.query.code ? req.query.code : "";
-  info(`Client ID: ${functions.config().auth.client_id.value}`);
+
+  const code = !!req.params.code ? req.params.code : "";
+
+  info(`/callback - Got Code '${code}'`);
+  info(`Client ID: ${functions.config().auth.client_id}`);
   request({
     method: 'POST',
     url: 'https://login.it.teithe.gr/token',
     form: {
-      "client_id": functions.config().auth.client_id.value,
-      "client_secret": functions.config().auth.client_secret.value,
+      "client_id": functions.config().auth.client_id,
+      "client_secret": functions.config().auth.client_secret,
       "grant_type": "authorization_code",
       "code": code,
     },
@@ -53,7 +59,7 @@ app.post('/callback', (req: any, res: any) => {
   }).pipe(res);
 });
 
-app.get((req: any, res: any) => {
+app.get('*', (req: any, res: any) => {
   res.status(404).json({
     error: 'Could not find route',
     code: ERROR_CODE_ROUTE_NOT_FOUND

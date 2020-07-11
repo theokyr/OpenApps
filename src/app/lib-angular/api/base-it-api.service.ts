@@ -27,17 +27,20 @@ export class BaseItApiService {
     return `${BaseItApiService._BASE_LOGIN_URL}/${endpoint}`;
   }
 
-  protected get(endpoint: string, queryParams?: HttpParams) {
-    if (!BaseItApiService._BASE_URL) {
+  protected get(link?: string, queryParams?: HttpParams, isExternal: boolean = false) {
+    if (!BaseItApiService._BASE_URL && !isExternal) {
       console.error("[angular-it-api] No Base URL has been set!");
       return of([]);
     }
+
+    let finalUrl = isExternal ? link : BaseItApiService.getUrl(link);
+
     return this.http
-      .get(BaseItApiService.getUrl(endpoint), {params: queryParams})
+      .get(finalUrl, {responseType: 'json', params: queryParams})
   }
 
   protected post(link?: string, queryParams?: HttpParams, isExternal: boolean = false) {
-    if (!BaseItApiService._BASE_URL) {
+    if (!BaseItApiService._BASE_URL && !isExternal) {
       console.error("[angular-it-api] No Base URL has been set!");
       return of([]);
     }
