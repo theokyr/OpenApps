@@ -11,19 +11,19 @@ const ERROR_CODE_ROUTE_NOT_FOUND: number = 1000;
 const ERROR_CODE_ROUTE_INVALID_PARAMS: number = 1001;
 
 const app = express();
-info(`Init`)
+// info(`Init`)
 const API_PREFIX = 'api';
 
 app.use(cors({origin: true}));
 
 // Rewrite Firebase hosting requests: /api/:path => /:path
 app.use((req: any, res: any, next: any) => {
-  info(`/api - Rewritan from ${req.url}`);
+  // info(`/api - Rewritan from ${req.url}`);
   if (req.url.indexOf(`/${API_PREFIX}/`) === 0) {
     req.url = req.url.substring(API_PREFIX.length + 1);
-    info(`/api - Rewrote to ${req.url}`);
+    // info(`/api - Rewrote to ${req.url}`);
   }
-  info(`/api - Returning next ${req.url}`);
+  // info(`/api - Returning next ${req.url}`);
   next();
 });
 
@@ -42,8 +42,8 @@ app.get('/auth/callback/:code', (req: any, res: any) => {
 
   const code = !!req.params.code ? req.params.code : "";
 
-  info(`/callback - Got Code '${code}'`);
-  info(`Client ID: ${functions.config().auth.client_id}`);
+  // info(`/callback - Got Code '${code}'`);
+  // info(`Client ID: ${functions.config().auth.client_id}`);
   request({
     method: 'POST',
     url: 'https://login.it.teithe.gr/token',
