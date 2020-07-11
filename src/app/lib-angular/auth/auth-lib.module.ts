@@ -4,6 +4,7 @@ import {LocalAuthApiService} from "./local-auth-api.service";
 import {FirebaseAuthApiService} from "./firebase-auth-api.service";
 import {JwtModule} from "@auth0/angular-jwt";
 import {environment} from "../../../environments/environment";
+import {AuthApiFactoryService} from "./auth-api-factory.service";
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -23,7 +24,8 @@ export function tokenGetter() {
   ],
   providers: [
     LocalAuthApiService,
-    FirebaseAuthApiService
+    FirebaseAuthApiService,
+    AuthApiFactoryService
   ]
 })
 export class AuthLibModule {

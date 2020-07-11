@@ -19,7 +19,8 @@ export class FirebaseAuthApiService extends BaseAuthApiService implements IAuthA
 
   requestAccessToken(code: string): Observable<AccessTokenModel> {
     const params = new HttpParams();
-    return super.get(`${this.URL_CALLBACK}/${code}`, params, true)
+    return super
+      .get(`${this.URL_CALLBACK}/${code}`, params, true)
       .pipe(
         map(res => {
           let accessTokenModel = new AccessTokenModel(res);
@@ -27,16 +28,4 @@ export class FirebaseAuthApiService extends BaseAuthApiService implements IAuthA
         })
       );
   }
-
-  // isAuthenticated(): boolean {
-  //   const token = localStorage.getItem('access_token');
-  //   let result = !!token || !this.jwtHelper.isTokenExpired(token);
-  //
-  //   console.debug(`[firebase-auth-api] isAuthenticated:
-  //   stored token: ${!!token},
-  //   helper: ${this.jwtHelper.isTokenExpired(token)},
-  //   result: ${result}`);
-  //
-  //   return !!token || !this.jwtHelper.isTokenExpired(token);
-  // }
 }

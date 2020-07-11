@@ -4,6 +4,8 @@ import {BaseItApiService} from "../api/base-it-api.service";
 import {HttpClient} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {IAuthApiService} from "./i-auth-api.service";
+import {AuthEndpoints} from "../../lib/auth/auth.endpoints";
+import {environment} from "../../../environments/environment";
 
 export abstract class BaseAuthApiService extends BaseItApiService implements IAuthApiService {
   private static readonly KEY_ACCESS_TOKEN: string = "access_token";
@@ -40,6 +42,15 @@ export abstract class BaseAuthApiService extends BaseItApiService implements IAu
     localStorage.removeItem(BaseAuthApiService.KEY_ACCESS_TOKEN);
     this.authenticationSubject.next(false);
     return of(true);
+  }
+
+  public redirectLogin() {
+    const queryParamClientId = `${AuthEndpoints.PARAM_CLIENT_ID}=${environment.client_id}`
+    const queryParamResponseType = `${AuthEndpoints.PARAM_RESPONSE_TYPE}=${environment.response_type}`
+    const queryParamScope = `${AuthEndpoints.PARAM_SCOPE}=${environment.scope}`
+    const queryRedirectUrl = `${AuthEndpoints.PARAM_REDIRECT_URI}=${environment.redirect_uri}`
+
+    window.location.href = `${AuthEndpoints.LOGIN_URL_REDIRECT_AUTHENTICATION}?${queryParamClientId}&${queryParamResponseType}&${queryParamScope}&${queryRedirectUrl}`
   }
 
   // isAuthenticated(): boolean {

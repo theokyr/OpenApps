@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LocalAuthApiService} from "../../../lib-angular/auth/local-auth-api.service";
+import {AuthApiFactoryService} from "../../../lib-angular/auth/auth-api-factory.service";
 
 @Component({
   selector: 'app-auth-login',
@@ -8,11 +8,11 @@ import {LocalAuthApiService} from "../../../lib-angular/auth/local-auth-api.serv
 })
 export class AuthLoginComponent implements OnInit {
 
-  constructor(public authService: LocalAuthApiService) {
+  constructor(public authFactory: AuthApiFactoryService) {
   }
 
   ngOnInit(): void {
-    this.authService.redirectLogin();
+    this.authFactory.service.redirectLogin();
   }
 
 }

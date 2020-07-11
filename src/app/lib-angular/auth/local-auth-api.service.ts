@@ -19,15 +19,6 @@ export class LocalAuthApiService extends BaseAuthApiService implements IAuthApiS
     super(http, jwtHelper);
   }
 
-  public redirectLogin() {
-    const queryParamClientId = `${AuthEndpoints.PARAM_CLIENT_ID}=${environment.client_id}`
-    const queryParamResponseType = `${AuthEndpoints.PARAM_RESPONSE_TYPE}=${environment.response_type}`
-    const queryParamScope = `${AuthEndpoints.PARAM_SCOPE}=${environment.scope}`
-    const queryRedirectUrl = `${AuthEndpoints.PARAM_REDIRECT_URI}=${environment.redirect_uri}`
-    const queryGrantType = `grant_type=refresh_token`
-
-    window.location.href = `${AuthEndpoints.LOGIN_URL_REDIRECT_AUTHENTICATION}?${queryParamClientId}&${queryParamResponseType}&${queryParamScope}&${queryRedirectUrl}&${queryGrantType}`
-  }
 
   public requestAccessToken(code: string) {
     const formData = new Map<string, string>();

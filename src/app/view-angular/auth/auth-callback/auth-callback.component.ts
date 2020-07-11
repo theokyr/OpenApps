@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {LocalAuthApiService} from "../../../lib-angular/auth/local-auth-api.service";
-import {FirebaseAuthApiService} from "../../../lib-angular/auth/firebase-auth-api.service";
-import {environment} from "../../../../environments/environment";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons/faArrowLeft";
 import {faExclamationCircle} from "@fortawesome/free-solid-svg-icons/faExclamationCircle";
-import {IAuthApiService} from "../../../lib-angular/auth/i-auth-api.service";
+import {AuthApiFactoryService} from "../../../lib-angular/auth/auth-api-factory.service";
 
 @Component({
   selector: 'app-auth-callback',
@@ -13,8 +10,6 @@ import {IAuthApiService} from "../../../lib-angular/auth/i-auth-api.service";
   styleUrls: ['./auth-callback.component.scss']
 })
 export class AuthCallbackComponent implements OnInit {
-
-  authService: IAuthApiService;
 
   isAuthFinished: boolean = false;
   isAuthSuccessful: boolean = false;
@@ -24,12 +19,9 @@ export class AuthCallbackComponent implements OnInit {
   faError = faExclamationCircle;
   faBack = faArrowLeft;
 
-  // temporary solution: ideally we would never want to inject both Local and Prod Api services
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private firebaseAuthService: FirebaseAuthApiService,
-              private localAuthService: LocalAuthApiService) {
-    this.authService = environment.production ? firebaseAuthService : localAuthService;
+              private authFactory: AuthApiFactoryService) {
   }
 
   ngOnInit(): void {
@@ -44,7 +36,7 @@ export class AuthCallbackComponent implements OnInit {
 
   finalizeAuthentication(code: string) {
     console.log(`Finalizing auth`)
-    this.authService
+    this.authFactory.service
       .requestAccessToken(code)
       .subscribe(res => {
         this.isAuthFinished = true;

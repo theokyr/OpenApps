@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {IAuthApiService} from "../../../lib-angular/auth/i-auth-api.service";
 import {Router} from "@angular/router";
-import {FirebaseAuthApiService} from "../../../lib-angular/auth/firebase-auth-api.service";
-import {LocalAuthApiService} from "../../../lib-angular/auth/local-auth-api.service";
-import {environment} from "../../../../environments/environment";
+import {AuthApiFactoryService} from "../../../lib-angular/auth/auth-api-factory.service";
 
 @Component({
   selector: 'app-auth-logout',
@@ -12,17 +9,12 @@ import {environment} from "../../../../environments/environment";
 })
 export class AuthLogoutComponent implements OnInit {
 
-  authService: IAuthApiService;
-
-  // temporary solution: ideally we would never want to inject both Local and Prod Api services
   constructor(private router: Router,
-              private firebaseAuthService: FirebaseAuthApiService,
-              private localAuthService: LocalAuthApiService) {
-    this.authService = environment.production ? firebaseAuthService : localAuthService;
+              public authFactory: AuthApiFactoryService) {
   }
 
   ngOnInit(): void {
-    this.authService.logout().subscribe(res => {
+    this.authFactory.service.logout().subscribe(res => {
       return this.router.navigate(["/"]);
     });
   }
