@@ -5,6 +5,7 @@ import {faNewspaper} from "@fortawesome/free-solid-svg-icons/faNewspaper";
 import {faSearch} from "@fortawesome/free-solid-svg-icons/faSearch";
 import {faSignInAlt} from "@fortawesome/free-solid-svg-icons/faSignInAlt";
 import {faSignOutAlt} from "@fortawesome/free-solid-svg-icons/faSignOutAlt";
+import {FirebaseAuthApiService} from "../../../lib-angular/auth/firebase-auth-api.service";
 
 @Component({
   selector: 'app-header',
@@ -20,11 +21,13 @@ export class HeaderComponent implements OnInit {
   faSignIn = faSignInAlt;
   faSignOut = faSignOutAlt;
 
+  public isAuthenticated = false;
 
-  constructor() {
+  constructor(public authService: FirebaseAuthApiService) {
   }
 
   ngOnInit(): void {
+    this.isAuthenticated = this.authService.isAuthenticated();
   }
 
 }

@@ -7,7 +7,6 @@ import {CategoriesLibModule} from "./categories/categories-lib.module";
 import {UsersLibModule} from "./users/users-lib.module";
 import {AuthLibModule} from "./auth/auth-lib.module";
 
-
 @NgModule({
   declarations: [],
   imports: [

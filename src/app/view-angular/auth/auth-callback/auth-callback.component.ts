@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {LocalAuthApiService} from "../../../lib-angular/auth/local-auth-api.service";
 import {FirebaseAuthApiService} from "../../../lib-angular/auth/firebase-auth-api.service";
+import {IAuthApiService} from "../../../lib-angular/auth/i-auth-api-service";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-auth-callback',
@@ -9,6 +12,8 @@ import {FirebaseAuthApiService} from "../../../lib-angular/auth/firebase-auth-ap
 })
 export class AuthCallbackComponent implements OnInit {
 
+  authService: IAuthApiService;
+
   access_token: string;
   user: string;
   refresh_token: string;
@@ -16,7 +21,9 @@ export class AuthCallbackComponent implements OnInit {
   error_reason: string;
   error_description: string;
 
-  constructor(private route: ActivatedRoute, public authService: FirebaseAuthApiService) {
+  // temporary solution: ideally we would never want to inject both Local and Prod Api services
+  constructor(private route: ActivatedRoute, firebaseAuthService: FirebaseAuthApiService, localAuthService: LocalAuthApiService) {
+    this.authService = environment.production ? firebaseAuthService : localAuthService;
   }
 
   ngOnInit(): void {
@@ -40,9 +47,10 @@ export class AuthCallbackComponent implements OnInit {
   finalizeAuthentication(code: string) {
     console.log(`Finalizing auth`)
     this.authService
-      .callbackFunction(code)
+      .requestAccessToken(code)
       .subscribe(res => {
-        console.log(res);
+        // TODO: Don't
+        localStorage.setItem("access_token", res.access_token)
       })
   }
 
