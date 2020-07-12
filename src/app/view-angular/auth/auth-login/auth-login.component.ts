@@ -7,11 +7,10 @@ import {AuthApiFactoryService} from "../../../lib-angular/auth/auth-api-factory.
   styleUrls: ['./auth-login.component.scss']
 })
 export class AuthLoginComponent implements OnInit {
-
   constructor(public authFactory: AuthApiFactoryService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.authFactory.service.redirectLogin();
   }
 

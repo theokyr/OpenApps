@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons/faArrowLeft";
 import {faExclamationCircle} from "@fortawesome/free-solid-svg-icons/faExclamationCircle";
@@ -9,7 +9,7 @@ import {AuthApiFactoryService} from "../../../lib-angular/auth/auth-api-factory.
   templateUrl: './auth-callback.component.html',
   styleUrls: ['./auth-callback.component.scss']
 })
-export class AuthCallbackComponent implements OnInit {
+export class AuthCallbackComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   isAuthFinished: boolean = false;
   isAuthSuccessful: boolean = false;
@@ -18,13 +18,20 @@ export class AuthCallbackComponent implements OnInit {
 
   faError = faExclamationCircle;
   faBack = faArrowLeft;
+  spinnerValue = 40;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private authFactory: AuthApiFactoryService) {
+              private authFactory: AuthApiFactoryService,
+              private cdRef: ChangeDetectorRef) {
   }
 
-  ngOnInit(): void {
+
+  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    this.spinnerValue = 40;
     this.route.queryParamMap.subscribe(item => {
       console.log()
       let code = item.get("code");
@@ -32,6 +39,11 @@ export class AuthCallbackComponent implements OnInit {
         this.finalizeAuthentication(code);
       }
     });
+  }
+
+
+  ngAfterViewChecked() {
+    this.cdRef.detectChanges();
   }
 
   finalizeAuthentication(code: string) {
