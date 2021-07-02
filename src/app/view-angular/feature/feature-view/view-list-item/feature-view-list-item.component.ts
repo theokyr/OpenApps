@@ -6,6 +6,7 @@ import {ApiFeatureStateModel} from "../../../../shared/api-feature-state.model";
 import {faUserAlt} from "@fortawesome/free-solid-svg-icons/faUserAlt";
 import {faUserAltSlash} from "@fortawesome/free-solid-svg-icons/faUserAltSlash";
 import {faUnlock} from "@fortawesome/free-solid-svg-icons/faUnlock";
+import {TranslatedText} from "../../../../lib/announcements/translated-text";
 
 @Component({
   selector: 'app-feature-view-list-item',
@@ -26,6 +27,8 @@ export class FeatureViewListItemComponent implements OnInit {
   link;
   @Input()
   infoLink;
+  @Input()
+  infoText: TranslatedText;
   @Input()
   featureState: ApiFeatureStateModel;
   @Input()

@@ -7,13 +7,15 @@ export class ApiFeature {
   private readonly _infoLink: string;
   private readonly _icon: Object;
   private readonly _featureState: ApiFeatureStateModel;
+  private _infoText: TranslatedText;
 
-  constructor(title: TranslatedText, link: string, infoLink: string, icon: Object, publicFeature: ApiFeatureStateModel) {
+  constructor(title: TranslatedText, link: string, infoLink: string, icon: Object, publicFeature: ApiFeatureStateModel, infoText?: TranslatedText) {
     this._title = title;
     this._link = link;
     this._infoLink = infoLink;
     this._icon = icon;
     this._featureState = publicFeature;
+    this._infoText = infoText;
   }
 
   get title(): TranslatedText {
@@ -34,5 +36,9 @@ export class ApiFeature {
 
   get featureState(): ApiFeatureStateModel {
     return this._featureState;
+  }
+
+  get infoText(): TranslatedText {
+    return this._infoText;
   }
 }
