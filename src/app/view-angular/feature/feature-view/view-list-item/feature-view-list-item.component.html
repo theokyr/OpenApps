@@ -1,96 +1,110 @@
-<div fxLayout="row" fxLayoutAlign="center center" class="list-item-row">
-  <div fxLayout="row" fxLayoutAlign="center center">
+<div fxLayout="row" fxLayoutAlign="stretch" class="list-item-row">
+  <div fxFlex="10" class="feature-status" fxLayout="row" fxLayoutAlign="start stretch">
     <!-- region Feature Status -->
     <ng-container *ngIf="featureState == API_FEATURE_STATE_PUBLIC">
-      <mat-card class="feature-status feature-status-public"
-                matTooltip="Δημόσια εφαρμογή"
-                fxLayout="row"
-                fxLayoutAlign="center center">
+      <div fxFlex class="feature-status-public feature-card-left-radius"
+           matTooltip="Δημόσια εφαρμογή"
+           fxLayout="row"
+           fxLayoutAlign="center center">
         <fa-icon [icon]="faPublic"></fa-icon>
-      </mat-card>
+      </div>
     </ng-container>
     <ng-container *ngIf="featureState == API_FEATURE_STATE_PRIVATE">
       <ng-container *ngIf="isAuthenticated">
-        <mat-card class="feature-status feature-status-private-authenticated"
-                  matTooltip="Έχετε πρόσβαση στην εφαρμογή"
-                  fxLayout="row"
-                  fxLayoutAlign="center center">
+        <div fxFlex class="feature-status-private-authenticated feature-card-left-radius"
+             matTooltip="Έχετε πρόσβαση στην εφαρμογή"
+             fxLayout="row"
+             fxLayoutAlign="center center">
           <fa-icon [icon]="faPrivateAuthenticated"></fa-icon>
-        </mat-card>
+        </div>
       </ng-container>
       <ng-container *ngIf="!isAuthenticated">
-        <mat-card class="feature-status feature-status-private"
-                  matTooltip="Ιδιωτική εφαρμογή"
-                  fxLayout="row"
-                  fxLayoutAlign="center center">
+        <div fxFlex class="feature-status-private feature-card-left-radius"
+             matTooltip="Ιδιωτική εφαρμογή"
+             fxLayout="row"
+             fxLayoutAlign="center center">
           <fa-icon [icon]="faPrivate"></fa-icon>
-        </mat-card>
+        </div>
       </ng-container>
     </ng-container>
     <ng-container *ngIf="featureState == API_FEATURE_STATE_SIGNED_OUT">
-      <mat-card class="feature-status feature-status-signed-out"
-                matTooltip="Είστε αποσυνδεδεμένοι"
-                fxLayout="row"
-                fxLayoutAlign="center center">
+      <div fxFlex class="feature-status-signed-out feature-card-left-radius"
+           matTooltip="Είστε αποσυνδεδεμένοι"
+           fxLayout="row"
+           fxLayoutAlign="center center">
         <fa-icon [icon]="faUserSignedOut"></fa-icon>
-      </mat-card>
+      </div>
     </ng-container>
     <ng-container *ngIf="featureState == API_FEATURE_STATE_SIGNED_IN">
-      <mat-card class="feature-status feature-status-signed-in"
-                matTooltip="Είστε συνδεδεμένοι"
-                fxLayout="row" fxLayoutAlign="center center">
+      <div fxFlex class="feature-status-signed-in feature-card-left-radius"
+           matTooltip="Είστε συνδεδεμένοι"
+           fxLayout="row" fxLayoutAlign="center center">
         <fa-icon [icon]="faUserSignedIn"></fa-icon>
-      </mat-card>
+      </div>
     </ng-container>
     <!-- endregion -->
   </div>
 
-  <a *ngIf="isRouterLink"
-     [fxFlex]="(infoLink || infoText) ? '90%' : '100%'"
-     [routerLink]="link"
-     class="link-no-style">
-    <mat-card matRipple
-              [class]="(infoLink || infoText) ? 'app-card app-card-with-info-box' : 'app-card'"
-              fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
-      <fa-icon [size]="'2x'" [icon]="icon"></fa-icon>
-      <div class="app-card-title">{{title}}</div>
-    </mat-card>
-  </a>
-  <a *ngIf="!isRouterLink"
-     [fxFlex]="(infoLink || infoText) ? '90%' : '100%'"
-     target="_blank"
-     [href]="link"
-     class="link-no-style">
-    <mat-card matRipple
-              [class]="(infoLink || infoText) ? 'app-card app-card-with-info-box' : 'app-card'"
-              fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
-      <fa-icon [size]="'2x'" [icon]="icon"></fa-icon>
-      <div class="app-card-title">{{title}}</div>
-    </mat-card>
-  </a>
+  <div fxFlex fxLayout="row" fxLayoutAlign="stretch">
+    <a *ngIf="isRouterLink"
+       fxFlex
+       [routerLink]="link"
+       class="link-no-style">
+      <mat-card matRipple
+                [class]="(infoLink || infoText) ? 'app-card app-card-with-info-box' : 'app-card'"
+                fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+        <fa-icon [size]="'2x'" [icon]="icon"></fa-icon>
+        <div class="app-card-title">{{title}}</div>
+      </mat-card>
+    </a>
+    <a *ngIf="!isRouterLink"
+       fxFlex
+       target="_blank"
+       [href]="link"
+       class="link-no-style">
+      <mat-card matRipple
+                fxFlex
+                [class]="(infoLink || infoText) ? 'app-card app-card-with-info-box' : 'app-card'"
+                fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+        <fa-icon [size]="'2x'" [icon]="icon"></fa-icon>
+        <div class="app-card-title">{{title}}</div>
+      </mat-card>
+    </a>
+  </div>
 
   <!--region Info Link-->
-  <a *ngIf="infoLink"
-     target="_blank"
-     class=""
-     [href]="infoLink">
-    <mat-card
-      class="feature-status feature-status-info "
-      [matTooltip]="infoText ? infoText.value : 'Επιπλέον πληροφορίες'"
-      fxLayout="row"
-      fxLayoutAlign="center center">
-      <fa-icon [icon]="faInfo"></fa-icon>
-    </mat-card>
-  </a>
-  <div *ngIf="!infoLink && infoText"
-       class="">
-    <mat-card
-      class="feature-status feature-status-info "
-      [matTooltip]="infoText.value"
-      fxLayout="row"
-      fxLayoutAlign="center center">
-      <fa-icon [icon]="faInfo"></fa-icon>
-    </mat-card>
+  <div *ngIf="(infoLink || infoText)"
+       class="feature-status"
+       fxLayoutAlign="stretch stretch"
+       fxLayout="row"
+       fxFlex="10">
+    <a *ngIf="infoLink"
+       fxFlex
+       target="_blank"
+       class="link-no-style"
+       [href]="infoLink">
+      <div
+        fxFlex
+        matRipple
+        class="feature-status-info feature-card-right-radius"
+        [matTooltip]="infoText ? infoText.value : 'Επιπλέον πληροφορίες'"
+        fxLayout="row"
+        fxLayoutAlign="center center">
+        <fa-icon [icon]="faInfo"></fa-icon>
+      </div>
+    </a>
+    <div *ngIf="!infoLink && infoText"
+         fxFlex
+         class="link-no-style">
+      <div
+        fxFlex
+        class="feature-status-info feature-card-right-radius"
+        [matTooltip]="infoText.value"
+        fxLayout="row"
+        fxLayoutAlign="center center">
+        <fa-icon [icon]="faInfo"></fa-icon>
+      </div>
+    </div>
   </div>
   <!--endregion-->
 </div>

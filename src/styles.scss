@@ -30,11 +30,25 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+$app-background: #010409;
 $header-height: 64px;
-$header-background: #546e7a;
+$header-background: #1c2431;
 $footer-height: 120px;
-$footer-background: #262626;
+$footer-background: #090c10;
 $spacer-height: 16px;
+
+.mat-app-background {
+  background-color: $app-background;
+}
+
+.mat-card {
+  background-color: #0d1117;
+}
+
+.mat-tooltip {
+  font-size: .75rem !important;
+  line-height: .75rem !important;
+}
 
 .app-view {
   margin-top: $header-height + $spacer-height;
