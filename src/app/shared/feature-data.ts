@@ -17,6 +17,7 @@ import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
 import {faGlobe} from "@fortawesome/free-solid-svg-icons/faGlobe";
 import {faDatabase} from "@fortawesome/free-solid-svg-icons";
 import {faPlug} from "@fortawesome/free-solid-svg-icons/faPlug";
+import {faChalkboardTeacher} from "@fortawesome/free-solid-svg-icons/faChalkboardTeacher";
 
 export class FeatureData {
   public static readonly featureSignIn = new ApiFeature(
@@ -43,6 +44,12 @@ export class FeatureData {
           "/announcements/",
           "",
           faNewspaper,
+          ApiFeatureStateModel.Public),
+        new ApiFeature(
+          new TranslatedText("Εικονικές Αίθουσες", "Virtual Rooms"),
+          "https://rooms.iee.ihu.gr/",
+          "",
+          faChalkboardTeacher,
           ApiFeatureStateModel.Public),
         new ApiFeature(
           new TranslatedText("Υπηρεσία Καταλόγου", "User Catalog"),
