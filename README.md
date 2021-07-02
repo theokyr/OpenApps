@@ -1,8 +1,11 @@
 # OpenApps
+
 Angular v10.0 client for [IT_API](https://github.com/apavlidi/IT_API/).
 
-You can find a version of the app deployed on Firebase here: 
+You can find a version of the app deployed on Firebase here:
 [http://openapps-it.web.app/](http://openapps-it.web.app/)
+
+![OpenApps Screenshot](https://github.com/theokyr/OpenApps/blob/master/docs/images/openapps.jpg?raw=true)
 
 * Current features:
   * Read Categories (Public)
@@ -10,9 +13,9 @@ You can find a version of the app deployed on Firebase here:
   * Authentication:
     * Login flow
 * Planned features:
-    * User Search (Public)
-    * Authentication:
-        * Read Categories (Private)
+  * User Search (Public)
+  * Authentication:
+    * Read Categories (Private)
         * Read Announcements (Private)
     * Category Filtering
     * Announcement Pagination
