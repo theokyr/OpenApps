@@ -1,5 +1,9 @@
 # OpenApps
 
+## 0.0.6
+
+- Updated to Angular 12.1.1
+
 ## 0.0.5
 
 - Added authentication and callback firebase function (see `firebase.example.json`)

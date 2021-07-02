@@ -1,6 +1,7 @@
 # OpenApps
 
-Angular v10.0 client for [IT_API](https://github.com/apavlidi/IT_API/).
+Angular v12.1.1 client for the [IT_API](https://github.com/apavlidi/IT_API/) for students of the Department of
+Information and Electronic Engineering of the International Hellenic University.
 
 You can find a version of the app deployed on Firebase here:
 [http://openapps-it.web.app/](http://openapps-it.web.app/)
