@@ -1,12 +1,35 @@
-<div class="bulletin-board" fxLayout="column" fxLayoutAlign="stretch">
-  <h1>Bulletin Board</h1>
-  <app-categories-list [categories]="categories"></app-categories-list>
-  <ng-container *ngIf="announcements.length>0">
-    <app-announcements-list [announcements]="announcements"></app-announcements-list>
-  </ng-container>
-  <ng-container *ngIf="announcements.length<=0">
-    <div class="full-width" fxLayout="row" fxLayoutAlign="center center">
-      <mat-spinner></mat-spinner>
+<div class="bulletin-board" fxLayout="column">
+  <h1 fxFlex fxLayout="row" fxLayoutAlign="start center">
+    <fa-icon [icon]="ICON"></fa-icon>
+    <span>{{TITLE.value}}</span>
+  </h1>
+
+  <div class="bulletin-board-categories-wrapper" fxLayout="column">
+    <div class="bulletin-board-categories"
+         fxFlex
+         fxLayout="row wrap"
+         fxLayout.lt-sm="column"
+         fxLayoutGap="8px grid"
+         fxLayoutAlign="center center"
+         fxLayoutAlign.lt-sm="stretch stretch">
+      <ng-container *ngFor="let category of categories">
+        <div fxFlex>
+          <button mat-flat-button
+                  (click)="onCategorySelected(category)"
+                  [ngClass]="category == selectedCategory ? 'category-selected' : 'category'">
+            {{category.name}}
+          </button>
+        </div>
+      </ng-container>
     </div>
-  </ng-container>
+  </div>
+
+  <!--    <ng-container *ngIf="announcements.length>0">-->
+  <!--      <app-announcements-list [announcements]="announcements"></app-announcements-list>-->
+  <!--    </ng-container>-->
+  <!--    <ng-container *ngIf="announcements.length<=0">-->
+  <!--      <div class="full-width" fxLayout="row" fxLayoutAlign="center center">-->
+  <!--        <mat-spinner></mat-spinner>-->
+  <!--      </div>-->
+  <!--    </ng-container>-->
 </div>

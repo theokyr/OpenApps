@@ -5,6 +5,8 @@ import {CategoriesViewAngularModule} from "../categories/categories-view-angular
 import {AnnouncementsViewAngularModule} from "../announcements/announcements-view-angular.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     CategoriesViewAngularModule,
     AnnouncementsViewAngularModule,
     FlexLayoutModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    FontAwesomeModule,
+    MatButtonModule
   ]
 })
 export class BulletinBoardAngularModule {
