@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {CategoriesViewAngularModule} from "../categories/categories-view-angular.module";
 import {AnnouncementsViewAngularModule} from "../announcements/announcements-view-angular.module";
-import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
@@ -11,12 +10,12 @@ import {MatRippleModule} from "@angular/material/core";
 import {AppRoutingModule} from "../../shared-angular/routing/app-routing.module";
 import {MatButtonModule} from "@angular/material/button";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {FeatureComponent} from './feature/feature.component';
 import {MatDividerModule} from "@angular/material/divider";
+import {NotFoundComponent} from './not-found/not-found.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent, FooterComponent, FeatureComponent],
+  declarations: [HeaderComponent, FooterComponent, NotFoundComponent],
   exports: [
     HeaderComponent,
     FooterComponent

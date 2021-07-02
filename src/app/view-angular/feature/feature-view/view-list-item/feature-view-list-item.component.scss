@@ -1,0 +1,67 @@
+@import 'responsive.mixin.scss';
+
+.app-card {
+  height: 4rem;
+  border-radius: 0 .25rem .25rem 0;
+}
+
+.app-card-with-info-box {
+  border-radius: 0;
+}
+
+
+.feature-status {
+  height: 4rem;
+  //width: 2rem;
+  border-radius: .25rem 0 0 .25rem;
+}
+
+.feature-status-info {
+  //width:4rem;
+  border-radius: 0 .25rem .25rem 0;
+  background-color: #03a9f4;
+}
+
+.feature-status-public {
+  background-color: #757575;
+}
+
+.feature-status-private {
+  background-color: #505050;
+}
+
+.feature-status-private-authenticated {
+  background-color: #999999;
+}
+
+.feature-status-signed-out {
+  background-color: #37474f;
+}
+
+.feature-status-signed-in {
+  background-color: #66bb6a;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.app-card-title {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.info-link {
+  border-radius: 0;
+}
+
+.list-item-row {
+  width: 24rem;
+
+
+  @include screen($breakpoint-desktop) {
+    width: 90vw;
+  }
+}

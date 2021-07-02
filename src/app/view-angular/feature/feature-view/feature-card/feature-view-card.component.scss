@@ -1,0 +1,44 @@
+.app-card {
+  width: 16rem;
+  height: 8rem;
+  border-radius: 0;
+}
+
+.feature-status {
+  width: 8rem;
+  border-radius: .25rem .25rem 0 0;
+}
+
+.feature-status-public {
+  background-color: #505050;
+}
+
+.feature-status-private {
+  background-color: #757575;
+}
+
+.feature-status-signed-out {
+  background-color: #37474f;
+}
+
+.feature-status-signed-in {
+  background-color: #66bb6a;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.app-card-title {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.mat-button,
+.mat-flat-button,
+.mat-icon-button,
+.mat-stroked-button {
+  border-radius: 0 0 .3rem .3rem;
+}

@@ -9,6 +9,12 @@ import {SharedAngularModule} from "../../shared-angular/shared-angular.module";
 import {MatListModule} from "@angular/material/list";
 import {MatRippleModule} from "@angular/material/core";
 import {AppRoutingModule} from "../../shared-angular/routing/app-routing.module";
+import {MatTableModule} from "@angular/material/table";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatInputModule} from "@angular/material/input";
+import {MatSortModule} from "@angular/material/sort";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 @NgModule({
@@ -25,7 +31,13 @@ import {AppRoutingModule} from "../../shared-angular/routing/app-routing.module"
     MatCardModule,
     MatListModule,
     MatRippleModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatSortModule,
+    FontAwesomeModule
   ]
 })
 export class AnnouncementsViewAngularModule {

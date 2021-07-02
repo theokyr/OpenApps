@@ -1,26 +1,77 @@
-<mat-list fxLayout="column" fxLayoutGap=".5rem">
-  <ng-container *ngFor="let announcement of announcements; let i = index">
-    <a class="link-no-style" mat-ripple [routerLink]="'/announcements/view/'+announcement.id">
-      <mat-card class="announcement-card" fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="1rem">
-        <div *ngIf="announcement.category">
-          {{announcement.category.name}}
-        </div>
-        <div *ngIf="!announcement.category">
-          {{announcement.categoryId}}
-        </div>
-        <div>
-          {{announcement.publisher.name}}
-        </div>
-        <div>
-          {{announcement.title.value}}
-        </div>
-        <div>
-          {{announcement.text.value | truncate : 35: false}}
-        </div>
-        <div>
-          {{announcement.date}}
-        </div>
-      </mat-card>
-    </a>
-  </ng-container>
-</mat-list>
+<!--<mat-list fxLayout="column" fxLayoutGap=".5rem">-->
+<!--  <ng-container *ngFor="let announcement of announcements; let i = index">-->
+<!--    <a class="link-no-style" mat-ripple [routerLink]="'/announcements/view/'+announcement.id">-->
+<!--      <mat-card class="announcement-card" fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="1rem">-->
+<!--        <div>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          {{announcement.title.value}}-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          {{announcement.text.value | truncate : 35: false}}-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          {{announcement.date}}-->
+<!--        </div>-->
+<!--      </mat-card>-->
+<!--    </a>-->
+<!--  </ng-container>-->
+<!--</mat-list>-->
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <fa-icon [icon]="faCategory"></fa-icon>&nbsp;Κατηγορία
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{row.category.name}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="publisher">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <fa-icon [icon]="faPublisher"></fa-icon>&nbsp;Συγγραφέας
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{row.publisher.name}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <fa-icon [icon]="faTitle"></fa-icon>&nbsp;Τίτλος
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{row.title.value}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="text">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <fa-icon [icon]="faContent"></fa-icon>&nbsp;Περιεχόμενο
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{row.text.value | truncate : 60: true}}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row
+        [routerLink]="'/announcements/view/'+row.id"
+        *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+</div>

@@ -1,5 +1,33 @@
-<div class="full-width header" fxLayout="row" fxLayoutAlign="space-between center">
-  <button mat-button routerLink="/" class="link-no-style">
-    <span class="app-title">OpenApps</span>
+<header
+  fxLayout="row"
+  fxLayoutAlign="space-between"
+  fxLayoutAlign.lt-lg="center center">
+  <button class="app-button link-no-style" mat-button routerLink="/" fxLayout="row" fxLayoutAlign="center center">
+    <div class="app-title">
+      <fa-icon [icon]="faAppIcon"></fa-icon>&nbsp;OpenApps
+    </div>
   </button>
-</div>
+  <div fxHide.lt-lg="true" fxFlex="grow" class="nav-bar" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayout="start center">
+      <a routerLink="/announcements" routerLinkActive="btn-active" mat-button>
+        <fa-icon [icon]="faAnnouncements"></fa-icon>&nbsp;Ανακοινώσεις
+      </a>
+      <a routerLink="/users" routerLinkActive="btn-active" mat-button>
+        <fa-icon [icon]="faUsers"></fa-icon>&nbsp;Αναζήτηση Χρηστών
+      </a>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center end">
+      <a routerLink="/auth/login" mat-stroked-button *ngIf="!isAuthenticated">
+        <fa-icon [icon]="faSignIn"></fa-icon>&nbsp;Είσοδος
+      </a>
+      <a routerLink="/auth/logout" mat-stroked-button *ngIf="isAuthenticated">
+        <fa-icon [icon]="faSignOut"></fa-icon>&nbsp;Αποσύνδεση
+      </a>
+    </div>
+  </div>
+
+  <div fxShow.lt-lg="true">
+    &nbsp;
+  </div>
+</header>
