@@ -46,7 +46,7 @@ app.get('/auth/callback/:code', (req: any, res: any) => {
   // info(`Client ID: ${functions.config().auth.client_id}`);
   request({
     method: 'POST',
-    url: 'https://login.it.teithe.gr/token',
+    url: 'https://login.iee.ihu.gr/token',
     form: {
       "client_id": functions.config().auth.client_id,
       "client_secret": functions.config().auth.client_secret,

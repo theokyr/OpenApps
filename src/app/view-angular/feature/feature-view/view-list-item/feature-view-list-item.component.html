@@ -46,23 +46,23 @@
   </div>
 
   <a *ngIf="isRouterLink"
-     [fxFlex]="infoLink ? '90%' : '100%'"
+     [fxFlex]="(infoLink || infoText) ? '90%' : '100%'"
      [routerLink]="link"
      class="link-no-style">
     <mat-card matRipple
-              [class]="infoLink ? 'app-card app-card-with-info-box' : 'app-card'"
+              [class]="(infoLink || infoText) ? 'app-card app-card-with-info-box' : 'app-card'"
               fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
       <fa-icon [size]="'2x'" [icon]="icon"></fa-icon>
       <div class="app-card-title">{{title}}</div>
     </mat-card>
   </a>
   <a *ngIf="!isRouterLink"
-     [fxFlex]="infoLink ? '90%' : '100%'"
+     [fxFlex]="(infoLink || infoText) ? '90%' : '100%'"
      target="_blank"
      [href]="link"
      class="link-no-style">
     <mat-card matRipple
-              [class]="infoLink ? 'app-card app-card-with-info-box' : 'app-card'"
+              [class]="(infoLink || infoText) ? 'app-card app-card-with-info-box' : 'app-card'"
               fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
       <fa-icon [size]="'2x'" [icon]="icon"></fa-icon>
       <div class="app-card-title">{{title}}</div>
@@ -75,13 +75,22 @@
      class=""
      [href]="infoLink">
     <mat-card
-      class="feature-status  feature-status-info "
-      *ngIf="infoLink"
-      matTooltip="Επιπλέον πληροφορίες"
+      class="feature-status feature-status-info "
+      [matTooltip]="infoText ? infoText.value : 'Επιπλέον πληροφορίες'"
       fxLayout="row"
       fxLayoutAlign="center center">
       <fa-icon [icon]="faInfo"></fa-icon>
     </mat-card>
   </a>
+  <div *ngIf="!infoLink && infoText"
+       class="">
+    <mat-card
+      class="feature-status feature-status-info "
+      [matTooltip]="infoText.value"
+      fxLayout="row"
+      fxLayoutAlign="center center">
+      <fa-icon [icon]="faInfo"></fa-icon>
+    </mat-card>
+  </div>
   <!--endregion-->
 </div>

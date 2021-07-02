@@ -20,6 +20,11 @@ import {faPlug} from "@fortawesome/free-solid-svg-icons/faPlug";
 import {faChalkboardTeacher} from "@fortawesome/free-solid-svg-icons/faChalkboardTeacher";
 
 export class FeatureData {
+  private static readonly INFO_TEXT_APPS =
+    new TranslatedText(
+      "Για να διασφαλισθει η ορθοτητα των δεδομενων και των στοιχειων της υπηρεσιας, ο συνδεσμος οδηγει στην επισημη πλατφορμα Apps του τμηματος.",
+      "To ensure that all information regarding this service is correct, this link will redirect you to the official Apps platform of the department."
+    )
   public static readonly featureSignIn = new ApiFeature(
     new TranslatedText("Σύνδεση", "Sign in"),
     "/auth/login",
@@ -59,28 +64,32 @@ export class FeatureData {
           ApiFeatureStateModel.Public),
         new ApiFeature(
           new TranslatedText("Υπηρεσία SSH", "SSH Service"),
-          "/ssh/",
+          "https://apps.iee.ihu.gr/service/ssh",
           "",
           faServer,
-          ApiFeatureStateModel.Private),
+          ApiFeatureStateModel.Private,
+          FeatureData.INFO_TEXT_APPS),
         new ApiFeature(
           new TranslatedText("Προσωπική Ιστοσελίδα", "Personal Website"),
-          "/website/",
+          "https://apps.iee.ihu.gr/service/website",
           "",
           faGlobe,
-          ApiFeatureStateModel.Private),
+          ApiFeatureStateModel.Private,
+          FeatureData.INFO_TEXT_APPS),
         new ApiFeature(
           new TranslatedText("Προσωπική Βάση", "Personal Database"),
-          "/database/",
+          "https://apps.iee.ihu.gr/service/mysql",
           "",
           faDatabase,
-          ApiFeatureStateModel.Private),
+          ApiFeatureStateModel.Private,
+          FeatureData.INFO_TEXT_APPS),
         new ApiFeature(
           new TranslatedText("Υπηρεσία VPN", "VPN Service"),
-          "/vpn/",
+          "https://apps.iee.ihu.gr/service/openvpn",
           "",
           faPlug,
-          ApiFeatureStateModel.Private)
+          ApiFeatureStateModel.Private,
+          FeatureData.INFO_TEXT_APPS)
       ]
     ),
     new ApiFeatureCategoryModel(
@@ -113,7 +122,7 @@ export class FeatureData {
           ApiFeatureStateModel.Public),
         new ApiFeature(
           new TranslatedText("IT API", "IT API"),
-          "https://login.it.teithe.gr/",
+          "https://login.iee.ihu.gr/",
           "",
           faCode,
           ApiFeatureStateModel.Public),
