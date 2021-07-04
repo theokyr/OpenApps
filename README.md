@@ -6,7 +6,7 @@ Information and Electronic Engineering of the International Hellenic University.
 You can find a version of the app deployed on Firebase here:
 [http://openapps-it.web.app/](http://openapps-it.web.app/)
 
-![OpenApps Screenshot](https://github.com/theokyr/OpenApps/blob/master/docs/images/openapps.jpg?raw=true)
+![OpenApps Screenshot](https://github.com/theokyr/OpenApps/blob/master/docs/images/openapps_007.jpg?raw=true)
 
 * Current features:
   * Read Categories (Public)
