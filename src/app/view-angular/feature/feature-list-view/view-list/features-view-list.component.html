@@ -1,23 +1,18 @@
-<div fxFill fxLayout="column" fxLayoutAlign="center center">
-  <div fxFlex
+<div fxFlex fxLayout="row" fxLayoutAlign="center center">
+  <div fxFlex="80"
+       fxFlex.lt-md="100"
        fxLayout="row"
-       fxLayout.lt-lg="column"
+       fxLayout.lt-md="column"
        fxLayoutAlign="center start"
+       fxLayoutAlign.lt-md="stretch stretch"
        fxLayoutGap="1rem">
     <ng-container *ngFor="let category of categories; let i = index">
-      <div class="category-list"
-           fxLayout="column"
-           fxLayoutAlign="start start"
-           fxLayoutGap="1rem">
+      <div fxFlex class="category-list" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap=".5rem">
         <div class="category-title" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap=".5rem">
           <fa-icon [icon]="category.icon"></fa-icon>
           <span>{{category.title.value}}</span>
         </div>
-        <div class="feature-list"
-             fxLayout="column wrap"
-             fxLayout.lt-lg="column"
-             fxLayoutAlign="center center"
-             fxLayoutGap="1rem grid">
+        <div class="feature-list" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap=".5rem">
           <ng-container *ngFor="let feature of category.features; let j = index">
             <app-feature-view-list-item *ngIf="shouldShowFeature(feature.featureState)"
                                         [title]="feature.title.value"
@@ -34,5 +29,3 @@
     </ng-container>
   </div>
 </div>
-
-

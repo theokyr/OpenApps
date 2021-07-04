@@ -23,7 +23,7 @@ export class AnnouncementsApiService extends BaseItApiService {
           let result = [];
           if (Array.isArray(data)) {
             data.forEach(item => {
-              result.push(new AnnouncementModel(item));
+              result.push(AnnouncementModel.from(item));
             })
           }
           return result;
@@ -40,7 +40,7 @@ export class AnnouncementsApiService extends BaseItApiService {
           let result: AnnouncementModel[] = [];
           if (Array.isArray(data)) {
             data.forEach(item => {
-              result.push(new AnnouncementModel(item));
+              result.push(AnnouncementModel.from(item));
             })
           }
           return result;

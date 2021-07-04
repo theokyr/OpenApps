@@ -2,6 +2,16 @@
 
 $default-radius: 6px;
 
+:host {
+  width: 100%;
+  min-width: 100%;
+}
+
+.list-item-row {
+  border: 1px solid #30363d;
+  border-radius: $default-radius;
+}
+
 .app-card {
   height: 4rem;
   border-radius: 0 $default-radius $default-radius 0;
@@ -20,6 +30,7 @@ $default-radius: 6px;
 }
 
 .feature-status {
+  width: 36px;
   height: 4rem;
 }
 
@@ -60,15 +71,4 @@ a:hover {
 
 .info-link {
   border-radius: 0;
-}
-
-.list-item-row {
-  width: 24rem;
-  border: 1px solid #30363d;
-  border-radius: $default-radius;
-  background-color: #30363d;
-
-  @include screen($breakpoint-desktop) {
-    width: 90vw;
-  }
 }

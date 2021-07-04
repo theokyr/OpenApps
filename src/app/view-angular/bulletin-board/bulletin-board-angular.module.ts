@@ -7,6 +7,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {MatButtonModule} from "@angular/material/button";
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {MatButtonModule} from "@angular/material/button";
     FlexLayoutModule,
     MatProgressSpinnerModule,
     FontAwesomeModule,
-    MatButtonModule
+    MatButtonModule,
+    ScrollingModule
   ]
 })
 export class BulletinBoardAngularModule {

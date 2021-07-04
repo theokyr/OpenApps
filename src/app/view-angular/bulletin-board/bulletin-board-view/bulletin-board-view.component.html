@@ -1,28 +1,53 @@
-<div class="bulletin-board" fxLayout="column">
-  <h1 fxFlex fxLayout="row" fxLayoutAlign="start center">
+<div class="bulletin-board" fxLayout="column" fxLayoutGap=".5rem">
+  <h1 fxLayout="row" fxLayoutAlign="start center" fxLayoutGap=".5rem">
     <fa-icon [icon]="ICON"></fa-icon>
     <span>{{TITLE.value}}</span>
   </h1>
 
-  <div class="bulletin-board-categories-wrapper" fxLayout="column">
-    <div class="bulletin-board-categories"
-         fxFlex
-         fxLayout="row wrap"
-         fxLayout.lt-sm="column"
-         fxLayoutGap="8px grid"
-         fxLayoutAlign="center center"
-         fxLayoutAlign.lt-sm="stretch stretch">
-      <ng-container *ngFor="let category of categories">
-        <div fxFlex>
-          <button mat-flat-button
-                  (click)="onCategorySelected(category)"
-                  [ngClass]="category == selectedCategory ? 'category-selected' : 'category'">
-            {{category.name}}
-          </button>
-        </div>
-      </ng-container>
+  <ng-container *ngIf="isLoading">
+    <div class="full-width" fxLayout="row" fxLayoutAlign="center center">
+      <mat-spinner></mat-spinner>
     </div>
-  </div>
+  </ng-container>
+
+  <ng-container *ngIf="!isLoading">
+    <div *ngIf="categories" class="bulletin-board-categories-wrapper" fxLayout="column">
+      <div class="bulletin-board-categories"
+           fxFlex
+           fxLayout="row wrap"
+           fxLayout.lt-sm="column"
+           fxLayoutGap="8px grid"
+           fxLayoutAlign="center center"
+           fxLayoutAlign.lt-sm="stretch stretch">
+        <ng-container *ngFor="let category of categories">
+          <div fxFlex>
+            <button mat-flat-button
+                    (click)="onCategorySelected(category)"
+                    [ngClass]="category == selectedCategory ? 'category-selected' : 'category'">
+              {{category.name}}
+            </button>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+
+  <cdk-virtual-scroll-viewport *ngIf="announcements"
+                               class="announcements-viewport"
+                               itemSize="10">
+    <!--    <div class="announcements-container" fxFlex fxLayout="column" fxLayoutAlign="space-between center">-->
+    <ng-container *cdkVirtualFor="let announcement of announcements">
+      <!--        <div class="announcement" fxLayout="row" fxFlex>-->
+      <!--          <h2>-->
+      <!--            {{announcement.publisher.name}}-->
+      <!--          </h2>-->
+      <h1>
+        {{announcement.title.value}}
+      </h1>
+      <!--        </div>-->
+    </ng-container>
+    <!--    </div>-->
+  </cdk-virtual-scroll-viewport>
 
   <!--    <ng-container *ngIf="announcements.length>0">-->
   <!--      <app-announcements-list [announcements]="announcements"></app-announcements-list>-->
