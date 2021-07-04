@@ -1,41 +1,57 @@
 @import 'responsive.mixin.scss';
 
+$default-radius: 6px;
+
+:host {
+  width: 100%;
+  min-width: 100%;
+}
+
+.list-item-row {
+  border: 1px solid #30363d;
+  border-radius: $default-radius;
+}
+
 .app-card {
   height: 4rem;
-  border-radius: 0 .25rem .25rem 0;
+  border-radius: 0 $default-radius $default-radius 0;
 }
 
 .app-card-with-info-box {
   border-radius: 0;
 }
 
+.feature-card-left-radius {
+  border-radius: $default-radius 0 0 $default-radius !important;
+}
+
+.feature-card-right-radius {
+  border-radius: 0 $default-radius $default-radius 0 !important;
+}
 
 .feature-status {
+  width: 36px;
   height: 4rem;
-  //width: 2rem;
-  border-radius: .25rem 0 0 .25rem;
 }
 
 .feature-status-info {
-  //width:4rem;
-  border-radius: 0 .25rem .25rem 0;
-  background-color: #03a9f4;
+  background-color: #5d77a2;
 }
 
 .feature-status-public {
-  background-color: #757575;
+  background-color: #1c2431;
 }
 
 .feature-status-private {
-  background-color: #505050;
+  background-color: #262626;
 }
 
 .feature-status-private-authenticated {
-  background-color: #999999;
+  background-color: #2f3c51;
 }
 
 .feature-status-signed-out {
-  background-color: #37474f;
+  background-color: #1c2431;
 }
 
 .feature-status-signed-in {
@@ -55,13 +71,4 @@ a:hover {
 
 .info-link {
   border-radius: 0;
-}
-
-.list-item-row {
-  width: 24rem;
-
-
-  @include screen($breakpoint-desktop) {
-    width: 90vw;
-  }
 }

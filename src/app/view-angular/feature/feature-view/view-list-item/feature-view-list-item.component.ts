@@ -44,9 +44,6 @@ export class FeatureViewListItemComponent implements OnInit {
   faUserSignedIn = faUserAlt;
   faInfo = faInfoCircle;
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     this.isRouterLink = !this.link.startsWith("http");
   }

@@ -23,4 +23,5 @@ import {AuthLogoutComponent} from './auth-logout/auth-logout.component';
     MatCardModule
   ]
 })
-export class AuthenticationViewAngularModule { }
+export class AuthenticationViewAngularModule {
+}

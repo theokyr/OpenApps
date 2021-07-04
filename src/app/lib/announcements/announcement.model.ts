@@ -1,7 +1,7 @@
-import {Publisher} from "./publisher";
 import {TranslatedText} from "./translated-text";
 import {ApiResponseModel} from "../api/api-response.model";
 import {CategoryModel} from "../categories/category.model";
+import {Publisher} from "./publisher";
 
 export class AnnouncementModel extends ApiResponseModel {
   private readonly _publisher: Publisher;
@@ -12,14 +12,25 @@ export class AnnouncementModel extends ApiResponseModel {
   private readonly _categoryId: string;
   private _category: CategoryModel;
 
-  constructor(obj: any) {
-    super(obj._id);
-    this._categoryId = obj._about;
-    this._title = new TranslatedText(obj.title, obj.titleEn);
-    this._text = new TranslatedText(obj.text, obj.textEn);
-    this._publisher = new Publisher(obj.publisher.id, obj.publisher.name);
-    this._date = new Date(obj.date);
-    this._attachments = obj.attachments;
+
+  constructor(id: String, publisher: Publisher, text: TranslatedText, title: TranslatedText, date: Date, attachments: string, categoryId: string) {
+    super(id);
+    this._publisher = publisher;
+    this._text = text;
+    this._title = title;
+    this._date = date;
+    this._attachments = attachments;
+    this._categoryId = categoryId;
+  }
+
+  public static from(obj: any) {
+    return new AnnouncementModel(obj._id,
+      new Publisher(obj.publisher.id, obj.publisher.name),
+      new TranslatedText(obj.title, obj.titleEn),
+      new TranslatedText(obj.text, obj.textEn),
+      new Date(obj.date),
+      obj._about,
+      obj.attachments);
   }
 
   get publisher(): Publisher {

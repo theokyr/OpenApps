@@ -2,7 +2,7 @@ import {ApiResponseModel} from "../api/api-response.model";
 
 export class CategoryModel extends ApiResponseModel {
   private readonly _name: string;
-  private readonly _public: true;
+  private readonly _public: boolean;
   private readonly _wid: string;
 
   constructor(obj: any) {
@@ -16,7 +16,7 @@ export class CategoryModel extends ApiResponseModel {
     return this._name;
   }
 
-  get public(): true {
+  get public(): boolean {
     return this._public;
   }
 
